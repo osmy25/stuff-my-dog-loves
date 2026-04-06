@@ -14,9 +14,9 @@ db.exec(`
 
 db.exec(`
   INSERT OR IGNORE INTO my_dog_likes (name, image) VALUES
-    ('Cat sister', '/images/signe.png'),
-    ('Cat brother', '/images/otis.png'),
-    ('Duck friend', '/images/thomas.png'),
+    ('Cat sister', '/images/signetailwag.gif'),
+    ('Cat brother', '/images/otistailwag.gif'),
+    ('Duck friend', '/images/thomasstatic.png'),
     ('Napping', '/images/napping.png'),
     ('Barking', '/images/barking.png');
 `);

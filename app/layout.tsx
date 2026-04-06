@@ -2,7 +2,7 @@ import "./globals.css";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Stuff My Dog Like",
+  title: "Stuff My Dog Loves",
   description: "The most popular site 2026",
 };
 

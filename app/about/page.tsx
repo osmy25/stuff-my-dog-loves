@@ -6,7 +6,7 @@ export default function AboutPage() {
       </h1>
 
       <p className="mt-4 text-gray-600">
-        This page is about the things my dog likes. What did you expect?
+        This page is about the things my dog loves.
       </p>
     </div>
   );

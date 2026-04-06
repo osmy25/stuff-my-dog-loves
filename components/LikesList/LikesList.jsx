@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function LikesList() {
   const [likes, setLikes] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(2);
 
   useEffect(() => {
     async function getDogInterests() {
