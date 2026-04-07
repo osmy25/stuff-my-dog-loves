@@ -36,7 +36,7 @@ export default function LikesList() {
               <img
                 src={likes[currentIndex].image}
                 alt={likes[currentIndex].name}
-                className="w-80 h-80 pixelated -translate-y-8"
+                className="w-80 h-80 pixelated -translate-y-6"
               />
             </div>
 
