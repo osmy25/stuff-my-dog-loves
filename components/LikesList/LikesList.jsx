@@ -29,18 +29,18 @@ export default function LikesList() {
 
   return (
     <div className="flex flex-col items-center gap-4 mt-10">
-      <div className="w-80 bg-white rounded-2xl shadow-lg border p-4">
+      <div className="w-full max-w-md bg-white rounded-3xl shadow-lg border p-8">
         {likes.length > 0 && (
           <>
             <div className="w-full flex items-center justify-center">
               <img
                 src={likes[currentIndex].image}
                 alt={likes[currentIndex].name}
-                className="w-64 h-64 object-contain rounded-lg"
+                className="w-80 h-80 object-contain pixelated"
               />
             </div>
 
-            <p className="mt-4 text-xl font-semibold text-gray-800 text-center">
+            <p className="mt-6 text-2xl font-bold text-gray-800 text-center">
               {likes[currentIndex].name}
             </p>
           </>
