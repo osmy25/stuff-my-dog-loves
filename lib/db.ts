@@ -18,7 +18,7 @@ db.exec(`
     ('Cat brother', '/images/otistailwag.gif'),
     ('Duck friend', '/images/thomasgif.gif'),
     ('Napping', '/images/viggonap.gif'),
-    ('Barking', '/images/viggobarkgif.gif');
+    ('Barking', '/images/viggobark.gif');
 `);
 
 export default db;
