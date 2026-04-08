@@ -14,8 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={styles.body}>
-        
+      <head>
         {/* Plausible analytics */}
         <Script
           strategy="afterInteractive"
@@ -29,7 +28,9 @@ export default function RootLayout({ children }) {
             plausible.init();
           `}
         </Script>
+      </head>
 
+      <body className={styles.body}>
         <Header />
 
         <main className={styles.main}>
