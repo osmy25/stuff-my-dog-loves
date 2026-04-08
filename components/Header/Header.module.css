@@ -1,0 +1,42 @@
+.header {
+  border-bottom: 1px solid var(--color-accent);
+  background: rgba(16, 185, 129, 0.1);
+  backdrop-filter: blur(6px);
+}
+
+.inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 16px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 18px;
+  color: #064e3b;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #10b981;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #047857;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: #064e3b;
+}

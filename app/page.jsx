@@ -1,11 +1,10 @@
-import LikesList from "../components/LikesList/LikesList";
+import styles from "./page.module.css";
+import List from "../components/List/List";
 
 export default function HomePage() {
   return (
-    <div className="space-y-8">
-
-
-      <LikesList />
+    <div className={styles.page}>
+      <List />
     </div>
   );
 }
