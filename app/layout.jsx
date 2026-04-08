@@ -18,16 +18,6 @@ export default function RootLayout({ children }) {
           async
           src="https://plausible.io/js/pa-irYK1VZ9R2L9KOTP3znEz.js"
         ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.plausible = window.plausible || function() {
-                (plausible.q = plausible.q || []).push(arguments)
-              };
-              plausible.init();
-            `,
-          }}
-        />
       </head>
       <body className={styles.body}>
         <Header />
