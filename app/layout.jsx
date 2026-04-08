@@ -21,10 +21,8 @@ export default function RootLayout({ children }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.plausible = window.plausible || function() {
-                (window.plausible.q = window.plausible.q || []).push(arguments);
-              };
-              window.plausible.init();
+              window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+              plausible.init()
             `,
           }}
         />
