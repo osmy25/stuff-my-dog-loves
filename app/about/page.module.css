@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+}
+
+.text {
+  margin-top: 1rem; /* mt-4 */
+  color: #52525b; /* gray-600 */
+}
