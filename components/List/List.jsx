@@ -12,7 +12,7 @@ export default function List() {
     async function getDogInterests() {
       const response = await fetch("/api/dog-likes");
       const data = await response.json();
-      setItems(data.likes);
+      setItems(data.items);
       setCurrentIndex(0);
     }
 
