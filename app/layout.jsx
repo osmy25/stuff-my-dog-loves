@@ -15,19 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* Plausible analytics */}
-        <Script
-          strategy="afterInteractive"
-          src="https://plausible.io/js/pa-irYK1VZ9R2L9KOTP3znEz.js"
-        />
-        <Script id="plausible-init" strategy="afterInteractive">
-          {`
-            window.plausible = window.plausible || function() {
-              (window.plausible.q = window.plausible.q || []).push(arguments)
-            };
-            plausible.init();
-          `}
-        </Script>
+
+      <script async src="https://plausible.io/js/pa-irYK1VZ9R2L9KOTP3znEz.js"></script>
+      <script>
+        window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+        plausible.init()
+      </script>
+
       </head>
 
       <body className={styles.body}>
