@@ -14,7 +14,7 @@ export default function Card({ item, onHeart, isHearted }) {
 
     const randomIndex = Math.floor(Math.random() * item.thoughts.length);
     setRandomThought(item.thoughts[randomIndex]);
-  }, [item]);
+  }, [item?.id]);
 
   if (!item) {
     return <div className={styles.loading}>Loading...</div>;
@@ -46,9 +46,11 @@ export default function Card({ item, onHeart, isHearted }) {
             aria-label={`Give ${item.name} a heart`}
             disabled={isHearted}
           >
-            <span className={styles.heartIcon}>
-              {isHearted ? "❤️" : "♡"}
-            </span>
+            <img
+              className={styles.heartIcon}
+              src={isHearted ? "/images/heart-filled.png" : "/images/heart-empty.png"}
+              alt="heart"
+            />
           </button>
         </div>
       </div>

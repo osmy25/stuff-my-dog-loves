@@ -85,7 +85,6 @@
 }
 
 .heartButton {
-  width: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,8 +100,12 @@
 }
 
 .heartIcon {
-  display: inline-block;
+  width: 32px;
+  height: 32px;
+  display: block;
+  image-rendering: pixelated;
   transition: transform 0.15s ease;
+  user-select: none;
 }
 
 .heartButton:hover {
@@ -114,29 +117,29 @@
 }
 
 .heartButton:active .heartIcon {
-  transform: scale(1.25);
+  transform: scale(1.2);
 }
 
 .heartButton:disabled {
-  cursor: pointer;
+  cursor: default;
   opacity: 1;
 }
 
 .hearted .heartIcon {
-  animation: heartPop 0.3s ease;
+  animation: heartPop 0.28s ease;
 }
 
 @keyframes heartPop {
   0% {
-    transform: scale(1);
+    transform: scale(1, 1);
   }
   30% {
-    transform: scale(1.3);
+    transform: scale(1.18, 0.9);
   }
   60% {
-    transform: scale(0.9);
+    transform: scale(0.92, 1.08);
   }
   100% {
-    transform: scale(1.1);
+    transform: scale(1, 1);
   }
 }
