@@ -1,57 +1,41 @@
 .container {
-  margin-top: 1rem; /* mt-10 */
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem; /* gap-5 */
+  gap: 1.25rem;
 }
 
 .buttonGroup {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* gap-3 */
+  gap: 0.75rem;
 }
 
 .button {
-  padding: 0.625rem 1.25rem; /* py-2.5 px-5 */
+  padding: 0.625rem 1.25rem;
   font-weight: 700;
-
   border-radius: 9999px;
-  border: 2px solid;
-
-  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, filter 0.2s ease;
   cursor: pointer;
 }
 
-/* Emerald button */
 .prev {
-  background-color: #d1fae5;
-  border-color: #bbf7d0;
-  color: #064e3b;
+  background: var(--yellow);
+  color: var(--text-dark);
 }
 
-/* Rose button */
 .next {
-  background-color: #ffe4e6;
-  border-color: #fecdd3;
-  color: #881337;
+  background: var(--pink);
+  color: var(--text-dark);
 }
 
-/* Hover effect */
 .button:hover:not(:disabled) {
   transform: translateY(-2px);
+  filter: brightness(0.97);
 }
 
-/* Specific hover colors */
-.prev:hover:not(:disabled) {
-  background-color: #bbf7d0;
-}
-
-.next:hover:not(:disabled) {
-  background-color: #fecdd3;
-}
-
-/* Disabled */
 .button:disabled {
   opacity: 0.5;
   cursor: not-allowed;

@@ -1,11 +1,11 @@
 .header {
-  border-bottom: 1px solid var(--color-accent);
-  background: rgba(16, 185, 129, 0.1);
+  border-bottom: 1px solid var(--pink);
+  background: rgba(252, 173, 193, 0.15); /* soft pink tint */
   backdrop-filter: blur(6px);
 }
 
 .inner {
-  max-width: 1024px;
+  max-width: 64rem; /* match layout */
   margin: 0 auto;
   padding: 16px 24px;
 
@@ -17,12 +17,12 @@
 .logo {
   font-weight: 800;
   font-size: 18px;
-  color: #064e3b;
+  color: var(--text-dark);
   text-decoration: none;
 }
 
 .logo span {
-  color: #10b981;
+  color: var(--purple);
 }
 
 .nav {
@@ -33,10 +33,11 @@
 .nav a {
   font-size: 14px;
   font-weight: 500;
-  color: #047857;
+  color: var(--text-light);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .nav a:hover {
-  color: #064e3b;
+  color: var(--purple);
 }

@@ -4,11 +4,14 @@
 }
 
 .title {
-  font-size: 1.875rem; /* text-3xl */
+  font-size: 1.875rem;
   font-weight: 700;
+  color: var(--text-dark);
 }
 
 .text {
-  margin-top: 1rem; /* mt-4 */
-  color: #52525b; /* gray-600 */
+  margin-top: 1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  max-width: 60ch;
 }

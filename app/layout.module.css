@@ -1,12 +1,12 @@
-.body {
+.page {
   min-height: 100vh;
-  background-color: #ecfdf5; /* emerald-50 */
-  color: #27272a; /* zinc-800 */
+  background: var(--bg);
+  color: var(--text-dark);
 }
 
 .main {
   margin: 0 auto;
   width: 100%;
-  max-width: 64rem; /* ~1024px (max-w-5xl) */
-  padding: 1rem; /* py-10 px-6 */
+  max-width: 64rem; /* ~1024px */
+  padding: 1rem;
 }

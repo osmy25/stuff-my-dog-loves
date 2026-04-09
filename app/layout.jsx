@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className={styles.body}>
+      <body className={styles.page}>
         <Header />
         <main className={styles.main}>{children}</main>
       </body>
