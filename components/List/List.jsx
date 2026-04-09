@@ -7,8 +7,12 @@ import styles from "./List.module.css";
 export default function List() {
   const [items, setItems] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [heartedItems, setHeartedItems] = useState([]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     async function getDogInterests() {
       const response = await fetch("/api/dog-likes");
       const data = await response.json();
@@ -17,7 +21,38 @@ export default function List() {
     }
 
     getDogInterests();
+
+    const savedHearts = localStorage.getItem("heartedItems");
+    if (savedHearts) {
+      setHeartedItems(JSON.parse(savedHearts).map(Number));
+    }
   }, []);
+
+  async function handleHeart(id) {
+    if (heartedItems.includes(id)) return;
+
+    try {
+      const response = await fetch(`/api/dog-likes/${id}/heart`, {
+        method: "POST",
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) return;
+
+      setItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === id ? { ...item, hearts: data.item.hearts } : item
+        )
+      );
+
+      const updatedHeartedItems = [...heartedItems, id];
+      setHeartedItems(updatedHeartedItems);
+      localStorage.setItem("heartedItems", JSON.stringify(updatedHeartedItems));
+    } catch (error) {
+      console.error("Failed to add heart:", error);
+    }
+  }
 
   function handleNext() {
     if (items.length === 0) return;
@@ -30,10 +65,16 @@ export default function List() {
   }
 
   const currentItem = items[currentIndex];
+  const isHearted =
+    mounted && currentItem ? heartedItems.includes(currentItem.id) : false;
 
   return (
     <div className={styles.container}>
-      <Card item={currentItem} />
+      <Card
+        item={currentItem}
+        onHeart={handleHeart}
+        isHearted={isHearted}
+      />
 
       <div className={styles.buttonGroup}>
         <button

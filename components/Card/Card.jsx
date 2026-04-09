@@ -1,10 +1,19 @@
-import { useMemo } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import styles from "./Card.module.css";
 
-export default function Card({ item }) {
-  const randomThought = useMemo(() => {
-    if (!item?.thoughts?.length) return null;
-    return item.thoughts[Math.floor(Math.random() * item.thoughts.length)];
+export default function Card({ item, onHeart, isHearted }) {
+  const [randomThought, setRandomThought] = useState(null);
+
+  useEffect(() => {
+    if (!item?.thoughts?.length) {
+      setRandomThought(null);
+      return;
+    }
+
+    const randomIndex = Math.floor(Math.random() * item.thoughts.length);
+    setRandomThought(item.thoughts[randomIndex]);
   }, [item]);
 
   if (!item) {
@@ -24,9 +33,24 @@ export default function Card({ item }) {
       <div className={styles.textContainer}>
         <p className={styles.label}>Dog approved</p>
         <p className={styles.title}>{item.name}</p>
-        {randomThought && (
-          <p className={styles.thought}>"{randomThought}"</p>
-        )}
+
+        <div className={styles.bottomRow}>
+          {randomThought && (
+            <p className={styles.thought}>{randomThought}</p>
+          )}
+
+          <button
+            type="button"
+            className={`${styles.heartButton} ${isHearted ? styles.hearted : ""}`}
+            onClick={() => onHeart(item.id)}
+            aria-label={`Give ${item.name} a heart`}
+            disabled={isHearted}
+          >
+            <span className={styles.heartIcon}>
+              {isHearted ? "❤️" : "♡"}
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );
