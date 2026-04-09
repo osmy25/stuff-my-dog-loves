@@ -11,17 +11,9 @@ export default function Card({ item }) {
     return <div className={styles.loading}>Loading...</div>;
   }
 
-  const isWaggingDog = item.name === "Dog";
-
   return (
     <div className={styles.card}>
-      <div
-        className={
-          isWaggingDog
-            ? `${styles.imageContainer} ${styles.imageContainerWag}`
-            : styles.imageContainer
-        }
-      >
+      <div className={styles.imageContainer}>
         <img
           src={item.image}
           alt={item.name}
