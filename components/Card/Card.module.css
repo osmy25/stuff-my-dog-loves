@@ -106,8 +106,8 @@
 }
 
 .heartIcon {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   display: block;
   image-rendering: pixelated;
   transition: transform 0.15s ease;
