@@ -36,7 +36,7 @@ export default function Card({ item, onHeart, isHearted }) {
 
         <div className={styles.bottomRow}>
           {randomThought && (
-            <p className={styles.thought}>{randomThought}</p>
+            <p className={styles.thought}>~ {randomThought} ~</p>
           )}
 
           <button

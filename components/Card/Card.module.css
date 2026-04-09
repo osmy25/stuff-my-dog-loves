@@ -27,7 +27,7 @@
 .image {
   width: min(20rem, 100%);
   height: auto;
-  transform: translateY(-1.2rem);
+  transform: translateY(-1rem);
   image-rendering: pixelated;
 }
 
@@ -44,11 +44,11 @@
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--text-light);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 
 .title {
-  margin-top: 0.3rem;
+  margin-top: 0.2rem;
   font-size: 1.75rem;
   font-weight: 700;
   color: var(--text-dark);
@@ -56,20 +56,23 @@
 }
 
 .bottomRow {
+  position: relative;
   display: flex;
-  align-items: center;
+  justify-content: center;
+  align-items: baseline;
+  min-height: 32px;
   margin-top: 0.35rem;
 }
 
 .thought {
   margin: 0;
+  width: 100%;
+  padding: 0 2.75rem;
   font-size: 0.7rem;
   line-height: 1.25;
   color: var(--text-light);
   font-style: italic;
   opacity: 0.8;
-  padding-left: 1rem;
-  flex: 1;
   text-align: center;
 }
 
@@ -85,18 +88,21 @@
 }
 
 .heartButton {
+  position: absolute;
+  right: 0.25rem;
+  top: 0;
+  bottom: 0;
+  transform: translateY(-1px);
+
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
   border: none;
   background: transparent;
-  color: var(--text-light);
-  font-size: 0.9rem;
   cursor: pointer;
   opacity: 0.75;
   transition: opacity 0.15s ease;
-  flex-shrink: 0;
 }
 
 .heartIcon {
