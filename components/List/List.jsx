@@ -70,6 +70,7 @@ export default function List() {
 
   return (
     <div className={styles.container}>
+
       <Card
         item={currentItem}
         onHeart={handleHeart}

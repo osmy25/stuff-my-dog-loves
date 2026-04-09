@@ -5,6 +5,7 @@ import styles from "./Card.module.css";
 
 export default function Card({ item, onHeart, isHearted }) {
   const [randomThought, setRandomThought] = useState(null);
+  const [countPop, setCountPop] = useState(false);
 
   useEffect(() => {
     if (!item?.thoughts?.length) {
@@ -15,6 +16,17 @@ export default function Card({ item, onHeart, isHearted }) {
     const randomIndex = Math.floor(Math.random() * item.thoughts.length);
     setRandomThought(item.thoughts[randomIndex]);
   }, [item?.id]);
+
+  useEffect(() => {
+    if (!isHearted) return;
+
+    setCountPop(true);
+    const timeout = setTimeout(() => {
+      setCountPop(false);
+    }, 280);
+
+    return () => clearTimeout(timeout);
+  }, [item?.hearts, isHearted]);
 
   if (!item) {
     return <div className={styles.loading}>Loading...</div>;
@@ -39,19 +51,27 @@ export default function Card({ item, onHeart, isHearted }) {
             <p className={styles.thought}>~ {randomThought} ~</p>
           )}
 
-          <button
-            type="button"
-            className={`${styles.heartButton} ${isHearted ? styles.hearted : ""}`}
-            onClick={() => onHeart(item.id)}
-            aria-label={`Give ${item.name} a heart`}
-            disabled={isHearted}
-          >
-            <img
-              className={styles.heartIcon}
-              src={isHearted ? "/images/heart-filled.png" : "/images/heart-empty.png"}
-              alt="heart"
-            />
-          </button>
+          <div className={styles.heartWrap}>
+            <span
+              className={`${styles.heartCount} ${countPop ? styles.countPop : ""}`}
+            >
+              {item.hearts}
+            </span>
+
+            <button
+              type="button"
+              className={`${styles.heartButton} ${isHearted ? styles.hearted : ""}`}
+              onClick={() => onHeart(item.id)}
+              aria-label={`Give ${item.name} a heart`}
+              disabled={isHearted}
+            >
+              <img
+                className={styles.heartIcon}
+                src={isHearted ? "/images/heart-filled.png" : "/images/heart-empty.png"}
+                alt="heart"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
