@@ -24,7 +24,16 @@ export default function List() {
 
     const savedHearts = localStorage.getItem("heartedItems");
     if (savedHearts) {
-      setHeartedItems(JSON.parse(savedHearts).map(Number));
+      try {
+        const parsed = JSON.parse(savedHearts)
+          .map((id) => Number(id))
+          .filter((id) => Number.isInteger(id) && id > 0);
+
+        setHeartedItems(parsed);
+      } catch (error) {
+        console.error("Failed to parse saved hearts:", error);
+        localStorage.removeItem("heartedItems");
+      }
     }
   }, []);
 
