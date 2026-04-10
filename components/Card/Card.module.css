@@ -182,3 +182,11 @@
     transform: scale(1, 1);
   }
 }
+
+
+@media (max-width: 640px) {
+  .heartIcon {
+    width: 32px;
+    height: 32px;
+  }
+}
