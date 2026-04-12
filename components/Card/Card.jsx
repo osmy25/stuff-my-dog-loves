@@ -6,6 +6,7 @@ import styles from "./Card.module.css";
 
 export default function Card({ item, onHeart, isHearted, reaction }) {
   const [randomThought, setRandomThought] = useState(null);
+  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     if (!item?.thoughts?.length) {
@@ -16,6 +17,25 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
     const randomIndex = Math.floor(Math.random() * item.thoughts.length);
     setRandomThought(item.thoughts[randomIndex]);
   }, [item?.id]);
+
+  function handleShuffleThought() {
+    if (!item?.thoughts?.length) return;
+    if (item.thoughts.length === 1) return;
+
+    setIsFading(true);
+
+    setTimeout(() => {
+      let next;
+
+      do {
+        const randomIndex = Math.floor(Math.random() * item.thoughts.length);
+        next = item.thoughts[randomIndex];
+      } while (next === randomThought);
+
+      setRandomThought(next);
+      setIsFading(false);
+    }, 180);
+  }
 
   if (!item) {
     return <div className={styles.loading}>Loading...</div>;
@@ -38,7 +58,16 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
         <div className={styles.bottomRow}>
           <div className={styles.thoughtArea}>
             {randomThought && (
-              <p className={styles.thought}>~ {randomThought} ~</p>
+              <button
+                type="button"
+                className={`${styles.thoughtButton} ${isFading ? styles.fade : ""}`}
+                onClick={handleShuffleThought}
+                aria-label={`Show another thought about ${item.name}`}
+              >
+                <span className={styles.thought}>
+                  ~ {randomThought} ~
+                </span>
+              </button>
             )}
 
             {reaction && (

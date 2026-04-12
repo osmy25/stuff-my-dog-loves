@@ -6,12 +6,6 @@
   border: 3px solid var(--pink);
   background: var(--white);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-  opacity: 1;
-  transition: opacity 0.2s ease;
-}
-
-.fading {
-  opacity: 0;
 }
 
 .imageContainer {
@@ -60,14 +54,15 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
-  min-height: 24px; /* match 48px heart */
+  min-height: 24px;
   margin-top: 0.35rem;
 }
 
+/* Thought text */
 .thought {
   margin: 0;
   width: 100%;
-  padding: 0 4.5rem; /* increased from 2.75rem */
+  padding: 0 4.5rem;
   font-size: 0.7rem;
   line-height: 1.25;
   color: var(--text-light);
@@ -76,28 +71,52 @@
   text-align: center;
 }
 
-.loading {
-  width: 100%;
-  max-width: 28rem;
-  padding: 1.5rem;
-  text-align: center;
-  border-radius: 2rem;
-  border: 3px solid var(--pink);
-  background: var(--white);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-}
-
+/* Thought container */
 .thoughtArea {
   position: relative;
   width: 100%;
 }
 
+/* Clickable wrapper (this now handles fade) */
+.thoughtButton {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+
+  transition: opacity 0.18s ease; /* ✅ fade happens here */
+}
+
+.fade {
+  opacity: 0;
+}
+
+/* Hover / interaction */
+.thoughtButton:hover .thought {
+  opacity: 0.7;
+}
+
+.thoughtButton:active .thought {
+  transform: translateY(1px);
+}
+
+.thoughtButton:focus {
+  outline: none;
+}
+
+.thoughtButton:focus-visible .thought {
+  opacity: 0.7;
+}
+
+/* Reaction text */
 .reaction {
   position: absolute;
   left: 50%;
   top: 100%;
   transform: translateX(-50%);
-
   margin-top: 2px;
 
   font-size: 0.6rem;
@@ -109,8 +128,8 @@
   animation: slideInOut 1.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
+/* Reaction animation */
 @keyframes slideInOut {
-  /* slide in from left */
   0% {
     opacity: 0;
     transform: translate(-70%, 0);
@@ -121,51 +140,30 @@
     transform: translate(-50%, 0);
   }
 
-  /* sit */
   65% {
     opacity: 1;
     transform: translate(-50%, 0);
   }
 
-
-  /* keep moving right while fading */
   100% {
     opacity: 0;
     transform: translate(0%, 0);
   }
 }
 
-
-
-
-@keyframes countPop {
-  0% {
-    transform: scale(1);
-  }
-  35% {
-    transform: scale(1.18);
-  }
-  100% {
-    transform: scale(1);
-  }
+/* Loading */
+.loading {
+  width: 100%;
+  max-width: 28rem;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 2rem;
+  border: 3px solid var(--pink);
+  background: var(--white);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes heartPop {
-  0% {
-    transform: scale(1, 1);
-  }
-  30% {
-    transform: scale(1.18, 0.9);
-  }
-  60% {
-    transform: scale(0.92, 1.08);
-  }
-  100% {
-    transform: scale(1, 1);
-  }
-}
-
-
+/* Mobile */
 @media (max-width: 640px) {
   .heartIcon {
     width: 32px;

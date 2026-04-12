@@ -63,11 +63,14 @@ export default function List() {
       const reactions = [
         "good choice",
         "very correct",
-        "you are best",
-        "I approves",
+        "you are the best",
+        "i approve",
         "much love",
         "yes",
-        "very good yes"
+        "important",
+        "this is good",
+        "i like this",
+        "very nice yes",
       ];
 
       const random =
