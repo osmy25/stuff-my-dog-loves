@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Card from "../Card/Card";
 import styles from "./List.module.css";
 
+const HEART_STORAGE_KEY = "heartedItems";
+
 export default function List() {
   const [items, setItems] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,26 +17,31 @@ export default function List() {
     setMounted(true);
 
     async function getDogInterests() {
-      const response = await fetch("/api/dog-likes");
-      const data = await response.json();
-      setItems(data.items);
-      setCurrentIndex(0);
+      try {
+        const response = await fetch("/api/dog-likes");
+        const data = await response.json();
+        setItems(data.items ?? []);
+        setCurrentIndex(0);
+      } catch (error) {
+        console.error("Failed to fetch dog likes:", error);
+      }
     }
 
     getDogInterests();
 
-    const savedHearts = localStorage.getItem("heartedItems");
-    if (savedHearts) {
-      try {
-        const parsed = JSON.parse(savedHearts)
-          .map((id) => Number(id))
-          .filter((id) => Number.isInteger(id) && id > 0);
+    try {
+      const savedHearts = localStorage.getItem(HEART_STORAGE_KEY);
 
-        setHeartedItems(parsed);
-      } catch (error) {
-        console.error("Failed to parse saved hearts:", error);
-        localStorage.removeItem("heartedItems");
-      }
+      if (!savedHearts) return;
+
+      const parsed = JSON.parse(savedHearts)
+        .map((id) => Number(id))
+        .filter((id) => Number.isInteger(id) && id > 0);
+
+      setHeartedItems(parsed);
+    } catch (error) {
+      console.error("Failed to parse saved hearts:", error);
+      localStorage.removeItem(HEART_STORAGE_KEY);
     }
   }, []);
 
@@ -48,7 +55,10 @@ export default function List() {
 
       const data = await response.json();
 
-      if (!response.ok) return;
+      if (!response.ok) {
+        console.error("Failed to add heart");
+        return;
+      }
 
       setItems((prevItems) =>
         prevItems.map((item) =>
@@ -58,7 +68,10 @@ export default function List() {
 
       const updatedHeartedItems = [...heartedItems, id];
       setHeartedItems(updatedHeartedItems);
-      localStorage.setItem("heartedItems", JSON.stringify(updatedHeartedItems));
+      localStorage.setItem(
+        HEART_STORAGE_KEY,
+        JSON.stringify(updatedHeartedItems)
+      );
 
       const reactions = [
         "good choice",
@@ -106,13 +119,12 @@ export default function List() {
 
   return (
     <div className={styles.container}>
-
-    <Card
-      item={currentItem}
-      onHeart={handleHeart}
-      isHearted={isHearted}
-      reaction={reaction}
-    />
+      <Card
+        item={currentItem}
+        onHeart={handleHeart}
+        isHearted={isHearted}
+        reaction={reaction}
+      />
 
       <div className={styles.buttonGroup}>
         <button
