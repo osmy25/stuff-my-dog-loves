@@ -9,6 +9,7 @@ export default function List() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [heartedItems, setHeartedItems] = useState([]);
   const [mounted, setMounted] = useState(false);
+  const [reaction, setReaction] = useState(null);
 
   useEffect(() => {
     setMounted(true);
@@ -58,6 +59,29 @@ export default function List() {
       const updatedHeartedItems = [...heartedItems, id];
       setHeartedItems(updatedHeartedItems);
       localStorage.setItem("heartedItems", JSON.stringify(updatedHeartedItems));
+
+      const reactions = [
+        "good choice",
+        "very correct",
+        "you are best",
+        "I approves",
+        "much love",
+        "yes",
+        "very good yes"
+      ];
+
+      const random =
+        reactions[Math.floor(Math.random() * reactions.length)];
+
+      setReaction(null);
+
+      setTimeout(() => {
+        setReaction(random);
+
+        setTimeout(() => {
+          setReaction(null);
+        }, 1450);
+      }, 10);
     } catch (error) {
       console.error("Failed to add heart:", error);
     }
@@ -80,11 +104,12 @@ export default function List() {
   return (
     <div className={styles.container}>
 
-      <Card
-        item={currentItem}
-        onHeart={handleHeart}
-        isHearted={isHearted}
-      />
+    <Card
+      item={currentItem}
+      onHeart={handleHeart}
+      isHearted={isHearted}
+      reaction={reaction}
+    />
 
       <div className={styles.buttonGroup}>
         <button
