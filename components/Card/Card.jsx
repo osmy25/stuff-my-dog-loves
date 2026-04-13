@@ -4,35 +4,58 @@ import { useEffect, useState } from "react";
 import HeartCounter from "../HeartCounter/HeartCounter";
 import styles from "./Card.module.css";
 
+function pickThought(thoughts, exclude = null) {
+  if (!thoughts) return null;
+
+  const rand = Math.random();
+  let pool = thoughts.normal || [];
+  let type = "normal";
+
+  if (rand < 0.02 && thoughts.legendary?.length) {
+    pool = thoughts.legendary;
+    type = "legendary";
+  } else if (rand < 0.17 && thoughts.rare?.length) {
+    pool = thoughts.rare;
+    type = "rare";
+  }
+
+  if (!pool.length) return null;
+  if (pool.length === 1) return { text: pool[0], type };
+
+  let next = pool[Math.floor(Math.random() * pool.length)];
+  let tries = 0;
+
+  while (next === exclude && tries < 10) {
+    next = pool[Math.floor(Math.random() * pool.length)];
+    tries += 1;
+  }
+
+  return { text: next, type };
+}
+
 export default function Card({ item, onHeart, isHearted, reaction }) {
   const [randomThought, setRandomThought] = useState(null);
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    if (!item?.thoughts?.length) {
-      setRandomThought(null);
-      return;
-    }
-
-    const randomIndex = Math.floor(Math.random() * item.thoughts.length);
-    setRandomThought(item.thoughts[randomIndex]);
-  }, [item?.id]);
+    setRandomThought(pickThought(item?.thoughts));
+  }, [item?.id, item?.thoughts]);
 
   function handleShuffleThought() {
-    if (!item?.thoughts?.length) return;
-    if (item.thoughts.length === 1) return;
+    const thoughts = item?.thoughts;
+    if (!thoughts) return;
+
+    const totalThoughts =
+      (thoughts.normal?.length || 0) +
+      (thoughts.rare?.length || 0) +
+      (thoughts.legendary?.length || 0);
+
+    if (totalThoughts <= 1) return;
 
     setIsFading(true);
 
     setTimeout(() => {
-      let next;
-
-      do {
-        const randomIndex = Math.floor(Math.random() * item.thoughts.length);
-        next = item.thoughts[randomIndex];
-      } while (next === randomThought);
-
-      setRandomThought(next);
+      setRandomThought(pickThought(thoughts, randomThought?.text));
       setIsFading(false);
     }, 180);
   }
@@ -64,8 +87,14 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
                 onClick={handleShuffleThought}
                 aria-label={`Show another thought about ${item.name}`}
               >
-                <span className={styles.thought}>
-                  ~ {randomThought} ~
+                <span
+                  className={`
+                    ${styles.thought}
+                    ${styles.visible}
+                    ${styles[randomThought.type]}
+                  `}
+                >
+                  ~ {randomThought.text} ~
                 </span>
               </button>
             )}

@@ -58,8 +58,22 @@
   margin-top: 0.35rem;
 }
 
-/* Thought text */
+.thoughtButton .rare {
+  color: #444;
+}
+
+.thoughtButton .legendary {
+  color: #6b625a;
+  letter-spacing: 0.05em;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    letter-spacing 0.2s ease,
+    color 0.2s ease;
+}
+
 .thought {
+  display: inline-block;
   margin: 0;
   width: 100%;
   padding: 0 4.5rem;
@@ -67,17 +81,28 @@
   line-height: 1.25;
   color: var(--text-light);
   font-style: italic;
-  opacity: 0.8;
   text-align: center;
+
+  transform: translateY(-2px);
+  opacity: 0;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    letter-spacing 0.2s ease,
+    color 0.2s ease;
 }
 
-/* Thought container */
+.visible {
+  transform: translateY(0);
+  opacity: 0.8;
+}
+
 .thoughtArea {
   position: relative;
   width: 100%;
 }
 
-/* Clickable wrapper (this now handles fade) */
 .thoughtButton {
   width: 100%;
   padding: 0;
@@ -86,15 +111,13 @@
   cursor: pointer;
   text-align: center;
   -webkit-tap-highlight-color: transparent;
-
-  transition: opacity 0.18s ease; /* ✅ fade happens here */
+  transition: opacity 0.18s ease;
 }
 
 .fade {
   opacity: 0;
 }
 
-/* Hover / interaction */
 .thoughtButton:hover .thought {
   opacity: 0.7;
 }

@@ -2,13 +2,35 @@ export const runtime = "nodejs";
 
 import db from "../../../lib/db";
 
+function normalizeThoughts(rawThoughts) {
+  if (!rawThoughts) {
+    return { normal: [], rare: [], legendary: [] };
+  }
+
+  const parsed = JSON.parse(rawThoughts);
+
+  if (Array.isArray(parsed)) {
+    return {
+      normal: parsed,
+      rare: [],
+      legendary: [],
+    };
+  }
+
+  return {
+    normal: parsed.normal || [],
+    rare: parsed.rare || [],
+    legendary: parsed.legendary || [],
+  };
+}
+
 export async function GET() {
   try {
     const rows = db.prepare("SELECT * FROM my_dog_likes").all();
 
     const items = rows.map((item) => ({
       ...item,
-      thoughts: item.thoughts ? JSON.parse(item.thoughts) : [],
+      thoughts: normalizeThoughts(item.thoughts),
     }));
 
     return Response.json({ items });
