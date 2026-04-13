@@ -16,6 +16,12 @@
   width: 100%;
   height: 16rem;
   overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.12s ease;
+}
+
+.imageContainer:active {
+  transform: scale(1.02);
 }
 
 .image {
@@ -54,7 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
-  min-height: 24px;
+  min-height: 30px;
   margin-top: 0.35rem;
 }
 
@@ -148,8 +154,9 @@
   pointer-events: none;
   white-space: nowrap;
 
-  animation: slideInOut 1.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+  animation: slideInOut 1.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
+
 
 /* Reaction animation */
 @keyframes slideInOut {
@@ -158,12 +165,12 @@
     transform: translate(-70%, 0);
   }
 
-  20% {
+  18% {
     opacity: 1;
     transform: translate(-50%, 0);
   }
 
-  65% {
+  78% {
     opacity: 1;
     transform: translate(-50%, 0);
   }

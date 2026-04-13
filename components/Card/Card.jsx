@@ -37,6 +37,20 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
   const [randomThought, setRandomThought] = useState(null);
   const [isFading, setIsFading] = useState(false);
 
+
+
+  async function handleShareThought() {
+    if (!item || !randomThought?.text) return;
+
+    const shareText = `Stuff My Dog Loves\n${item.name}\n"${randomThought.text}"`;
+
+    try {
+      await navigator.clipboard.writeText(shareText);
+    } catch (error) {
+      console.error("Failed to copy thought:", error);
+    }
+  }
+  
   useEffect(() => {
     setRandomThought(pickThought(item?.thoughts));
   }, [item?.id, item?.thoughts]);
