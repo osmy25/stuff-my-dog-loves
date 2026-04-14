@@ -40,13 +40,13 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
 
 
   async function onShare(id, name) {
-    const url = `${window.location.origin}/?id=${id}`;
+    const url = `${window.location.origin}/card/${id}`;
 
     try {
       if (navigator.share) {
         await navigator.share({
-          title: "My dog loves this",
-          text: `This is so him 😂 (${name})`,
+          title: "Stuff My Dog Loves",
+          text: name,
           url,
         });
       } else {
@@ -57,8 +57,8 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
           setCopiedId(null);
         }, 1500);
       }
-    } catch (err) {
-      console.error("Share failed:", err);
+    } catch (error) {
+      console.error("Share failed:", error);
     }
   }
 
