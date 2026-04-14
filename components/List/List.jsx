@@ -58,12 +58,6 @@ export default function List() {
     }
 
     const wantedId = Number(idFromUrl);
-
-    if (!Number.isInteger(wantedId)) {
-      setCurrentIndex(0);
-      return;
-    }
-
     const foundIndex = items.findIndex((item) => item.id === wantedId);
 
     if (foundIndex !== -1) {
