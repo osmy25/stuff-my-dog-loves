@@ -58,19 +58,18 @@ export default function List() {
     }
 
     const wantedId = Number(idFromUrl);
-    const foundIndex = items.findIndex((item) => item.id === wantedId);
 
-    if (foundIndex !== -1) {
-      setCurrentIndex(foundIndex);
-    } else {
+    if (!Number.isInteger(wantedId)) {
       setCurrentIndex(0);
+      return;
     }
+
+    const foundIndex = items.findIndex((item) => item.id === wantedId);
+    setCurrentIndex(foundIndex !== -1 ? foundIndex : 0);
   }, [items, idFromUrl]);
 
   function updateUrl(id) {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("id", String(id));
-    router.replace(`/?${params.toString()}`, { scroll: false });
+    router.replace(`/?id=${id}`, { scroll: false });
   }
 
   async function handleHeart(id) {
@@ -135,7 +134,6 @@ export default function List() {
     if (items.length === 0) return;
 
     const nextIndex = (currentIndex + 1) % items.length;
-    setCurrentIndex(nextIndex);
     updateUrl(items[nextIndex].id);
   }
 
@@ -143,7 +141,6 @@ export default function List() {
     if (items.length === 0) return;
 
     const prevIndex = (currentIndex - 1 + items.length) % items.length;
-    setCurrentIndex(prevIndex);
     updateUrl(items[prevIndex].id);
   }
 
