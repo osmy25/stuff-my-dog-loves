@@ -36,8 +36,31 @@ function pickThought(thoughts, exclude = null) {
 export default function Card({ item, onHeart, isHearted, reaction }) {
   const [randomThought, setRandomThought] = useState(null);
   const [isFading, setIsFading] = useState(false);
+  const [copiedId, setCopiedId] = useState(null);
 
 
+  async function onShare(id, name) {
+    const url = `${window.location.origin}/?id=${id}`;
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "My dog loves this",
+          text: `This is so him 😂 (${name})`,
+          url,
+        });
+      } else {
+        await navigator.clipboard.writeText(url);
+        setCopiedId(id);
+
+        setTimeout(() => {
+          setCopiedId(null);
+        }, 1500);
+      }
+    } catch (err) {
+      console.error("Share failed:", err);
+    }
+  }
 
   async function handleShareThought() {
     if (!item || !randomThought?.text) return;
@@ -93,6 +116,31 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
         <p className={styles.title}>{item.name}</p>
 
         <div className={styles.bottomRow}>
+
+          <button
+            type="button"
+            className={`${styles.shareButton} ${
+              copiedId === item.id ? styles.copied : ""
+            }`}
+            onClick={() => onShare(item.id, item.name)}
+            aria-label={`Share ${item.name}`}
+          >
+            {copiedId === item.id ? (
+              "✓"
+            ) : (
+              <svg
+                className={styles.shareIcon}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="M18 16a3 3 0 0 0-2.39 1.19l-6.2-3.1a3.13 3.13 0 0 0 0-2.18l6.2-3.1A3 3 0 1 0 15 7a3.1 3.1 0 0 0 .08.7l-6.2 3.1a3 3 0 1 0 0 2.4l6.2 3.1A3 3 0 1 0 18 16Z" />
+              </svg>
+            )}
+          </button>
+
+
+
+
           <div className={styles.thoughtArea}>
             {randomThought && (
               <button
