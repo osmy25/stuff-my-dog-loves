@@ -134,14 +134,20 @@ export default function List() {
     if (items.length === 0) return;
 
     const nextIndex = (currentIndex + 1) % items.length;
-    updateUrl(items[nextIndex].id);
+    const nextId = items[nextIndex].id;
+
+    setCurrentIndex(nextIndex);
+    updateUrl(nextId);
   }
 
   function handlePrev() {
     if (items.length === 0) return;
 
     const prevIndex = (currentIndex - 1 + items.length) % items.length;
-    updateUrl(items[prevIndex].id);
+    const prevId = items[prevIndex].id;
+
+    setCurrentIndex(prevIndex);
+    updateUrl(prevId);
   }
 
   const currentItem = items[currentIndex];
