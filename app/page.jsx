@@ -1,10 +1,14 @@
-import styles from "./page.module.css";
+import { Suspense } from "react";
 import List from "../components/List/List";
 
-export default function HomePage() {
+function ListFallback() {
+  return null;
+}
+
+export default function Page() {
   return (
-    <div className={styles.page}>
+    <Suspense fallback={<ListFallback />}>
       <List />
-    </div>
+    </Suspense>
   );
 }
