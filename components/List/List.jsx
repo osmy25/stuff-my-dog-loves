@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import Card from "../Card/Card";
 import styles from "./List.module.css";
 
@@ -14,7 +14,6 @@ export default function List() {
   const [mounted, setMounted] = useState(false);
   const [reaction, setReaction] = useState(null);
 
-  const router = useRouter();
   const searchParams = useSearchParams();
   const idFromUrl = searchParams.get("id");
 
@@ -69,7 +68,7 @@ export default function List() {
   }, [items, idFromUrl]);
 
   function updateUrl(id) {
-    router.replace(`/?id=${id}`, { scroll: false });
+    window.history.replaceState(null, "", `/?id=${id}`);
   }
 
   async function handleHeart(id) {
