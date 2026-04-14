@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Card from "../Card/Card";
 import styles from "./List.module.css";
 
@@ -13,6 +14,10 @@ export default function List() {
   const [mounted, setMounted] = useState(false);
   const [reaction, setReaction] = useState(null);
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const idFromUrl = searchParams.get("id");
+
   useEffect(() => {
     setMounted(true);
 
@@ -21,7 +26,6 @@ export default function List() {
         const response = await fetch("/api/dog-likes");
         const data = await response.json();
         setItems(data.items ?? []);
-        setCurrentIndex(0);
       } catch (error) {
         console.error("Failed to fetch dog likes:", error);
       }
@@ -44,6 +48,36 @@ export default function List() {
       localStorage.removeItem(HEART_STORAGE_KEY);
     }
   }, []);
+
+  useEffect(() => {
+    if (items.length === 0) return;
+
+    if (!idFromUrl) {
+      setCurrentIndex(0);
+      return;
+    }
+
+    const wantedId = Number(idFromUrl);
+
+    if (!Number.isInteger(wantedId)) {
+      setCurrentIndex(0);
+      return;
+    }
+
+    const foundIndex = items.findIndex((item) => item.id === wantedId);
+
+    if (foundIndex !== -1) {
+      setCurrentIndex(foundIndex);
+    } else {
+      setCurrentIndex(0);
+    }
+  }, [items, idFromUrl]);
+
+  function updateUrl(id) {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("id", String(id));
+    router.replace(`/?${params.toString()}`, { scroll: false });
+  }
 
   async function handleHeart(id) {
     if (heartedItems.includes(id)) return;
@@ -105,12 +139,18 @@ export default function List() {
 
   function handleNext() {
     if (items.length === 0) return;
-    setCurrentIndex((prev) => (prev + 1) % items.length);
+
+    const nextIndex = (currentIndex + 1) % items.length;
+    setCurrentIndex(nextIndex);
+    updateUrl(items[nextIndex].id);
   }
 
   function handlePrev() {
     if (items.length === 0) return;
-    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
+
+    const prevIndex = (currentIndex - 1 + items.length) % items.length;
+    setCurrentIndex(prevIndex);
+    updateUrl(items[prevIndex].id);
   }
 
   const currentItem = items[currentIndex];
