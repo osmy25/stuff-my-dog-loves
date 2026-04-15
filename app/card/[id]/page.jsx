@@ -50,7 +50,7 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const imageUrl = `https://stuffmydogloves.com${item.image}`;
+  const imageUrl = `https://stuffmydogloves.com/images/og/${item.id}.png`;
 
   return {
     title: `${item.name} | Stuff My Dog Loves`,
