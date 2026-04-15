@@ -13,6 +13,7 @@ export default function List() {
   const [heartedItems, setHeartedItems] = useState([]);
   const [mounted, setMounted] = useState(false);
   const [reaction, setReaction] = useState(null);
+  const [heartsLoaded, setHeartsLoaded] = useState(false);
 
   const searchParams = useSearchParams();
   const idFromUrl = searchParams.get("id");
@@ -35,16 +36,18 @@ export default function List() {
     try {
       const savedHearts = localStorage.getItem(HEART_STORAGE_KEY);
 
-      if (!savedHearts) return;
+      if (savedHearts) {
+        const parsed = JSON.parse(savedHearts)
+          .map((id) => Number(id))
+          .filter((id) => Number.isInteger(id) && id > 0);
 
-      const parsed = JSON.parse(savedHearts)
-        .map((id) => Number(id))
-        .filter((id) => Number.isInteger(id) && id > 0);
-
-      setHeartedItems(parsed);
+        setHeartedItems(parsed);
+      }
     } catch (error) {
       console.error("Failed to parse saved hearts:", error);
       localStorage.removeItem(HEART_STORAGE_KEY);
+    } finally {
+      setHeartsLoaded(true);
     }
   }, []);
 
@@ -72,6 +75,7 @@ export default function List() {
   }
 
   async function handleHeart(id) {
+    if (!heartsLoaded) return;
     if (heartedItems.includes(id)) return;
 
     try {
@@ -151,7 +155,9 @@ export default function List() {
 
   const currentItem = items[currentIndex];
   const isHearted =
-    mounted && currentItem ? heartedItems.includes(currentItem.id) : false;
+    mounted && heartsLoaded && currentItem
+      ? heartedItems.includes(currentItem.id)
+      : false;
 
   return (
     <div className={styles.container}>
