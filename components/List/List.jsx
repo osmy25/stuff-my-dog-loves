@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Card from "../Card/Card";
 import styles from "./List.module.css";
 
@@ -15,8 +15,10 @@ export default function List() {
   const [reaction, setReaction] = useState(null);
   const [heartsLoaded, setHeartsLoaded] = useState(false);
 
-  const searchParams = useSearchParams();
-  const idFromUrl = searchParams.get("id");
+  const pathname = usePathname();
+  const idFromUrl = pathname.startsWith("/card/")
+    ? pathname.split("/card/")[1]
+    : null;
 
   useEffect(() => {
     setMounted(true);
@@ -71,7 +73,7 @@ export default function List() {
   }, [items, idFromUrl]);
 
   function updateUrl(id) {
-    window.history.replaceState(null, "", `/?id=${id}`);
+    window.history.replaceState(null, "", `/card/${id}`);
   }
 
   async function handleHeart(id) {

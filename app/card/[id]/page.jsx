@@ -55,6 +55,9 @@ export async function generateMetadata({ params }) {
   return {
     title: `${item.name} | Stuff My Dog Loves`,
     description: `${item.name} — one of Viggo's favorite things.`,
+    alternates: {
+      canonical: `/card/${item.id}`,
+    },
     openGraph: {
       title: `${item.name} | Stuff My Dog Loves`,
       description: `${item.name} — one of Viggo's favorite things.`,
@@ -86,17 +89,17 @@ export default async function CardPage({ params }) {
   }
 
   return (
-      <main
-        style={{
-          minHeight: "100dvh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "flex-start",
-          paddingTop: "3rem",
-          paddingLeft: "1rem",
-          paddingRight: "1rem",
-        }}
-      >
+    <main
+      style={{
+        minHeight: "100dvh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        paddingTop: "3rem",
+        paddingLeft: "1rem",
+        paddingRight: "1rem",
+      }}
+    >
       <div
         style={{
           width: "100%",
@@ -157,7 +160,7 @@ export default async function CardPage({ params }) {
         </p>
 
         <a
-          href={`/?id=${item.id}`}
+          href={`/card/${item.id}`}
           style={{
             display: "inline-block",
             padding: "0.7rem 1rem",
