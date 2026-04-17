@@ -2,6 +2,9 @@ export const runtime = "nodejs";
 
 import db from "../../../../../lib/db";
 
+
+
+// för heartbutton +1 POST
 export async function POST(request, { params }) {
   try {
     const { id } = await params;

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://stuffmydogloves.com
+
+# Sitemaps
+Sitemap: https://stuffmydogloves.com/sitemap.xml
