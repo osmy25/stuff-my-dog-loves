@@ -4,6 +4,10 @@ import Script from "next/script";
 import Header from "../components/Header/Header";
 
 export const metadata = {
+  metadataBase: new URL("https://stuffmydogloves.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Stuff My Dog Loves",
     template: "%s | Stuff My Dog Loves",
