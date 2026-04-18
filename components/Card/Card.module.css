@@ -56,12 +56,12 @@
 }
 
 .bottomRow {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  align-items: center;
   min-height: 30px;
-  margin-top: 0.35rem;
+  width: 100%;
+  margin-top: -0.75rem;
 }
 
 .thoughtButton .rare {
@@ -82,16 +82,14 @@
   display: inline-block;
   margin: 0;
   width: 100%;
-  padding: 0 4.5rem;
+  padding: 0;
   font-size: 0.7rem;
   line-height: 1.25;
   color: var(--text-light);
   font-style: italic;
   text-align: center;
-
   transform: translateY(-2px);
   opacity: 0;
-
   transition:
     opacity 0.2s ease,
     transform 0.2s ease,
@@ -107,10 +105,12 @@
 .thoughtArea {
   position: relative;
   width: 100%;
+  min-width: 0;
 }
 
 .thoughtButton {
   display: inline-block;
+  width: 100%;
   padding: 0;
   border: none;
   background: transparent;
@@ -147,24 +147,21 @@
   top: 100%;
   transform: translateX(-50%);
   margin-top: 2px;
-
   font-size: 0.6rem;
   font-style: italic;
   color: var(--text-light);
   pointer-events: none;
   white-space: nowrap;
-
   animation: slideInOut 1.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
 .shareButton {
-  position: absolute;
-  left: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  position: static;
+  transform: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-self: start;
   width: 28px;
   height: 28px;
   border: none;
@@ -172,7 +169,6 @@
   cursor: pointer;
   border-radius: 50%;
   opacity: 0.75;
-  z-index: 5; /* increase this */
   transition:
     opacity 0.18s ease,
     transform 0.18s ease,
@@ -184,16 +180,14 @@
 }
 
 .shareButton:active {
-  transform: translateY(-50%) scale(0.9);
+  transform: scale(0.9);
 }
 
 .shareIcon {
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   fill: currentColor;
 }
-
-
 
 .copied {
   color: var(--text-dark);

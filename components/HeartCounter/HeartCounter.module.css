@@ -1,13 +1,10 @@
 .heartWrap {
-  position: absolute;
-  right: 0.25rem;
-  top: 0;
-  bottom: 0;
-  transform: translateY(-1px);
-
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.25rem;
+  transform: translateY(-1px);
+  justify-self: end;
 }
 
 .heartCount {
