@@ -26,7 +26,9 @@ function normalizeThoughts(rawThoughts) {
 
 export async function GET() {
   try {
-    const rows = db.prepare("SELECT * FROM my_dog_likes").all();
+    const rows = db
+      .prepare("SELECT * FROM my_dog_likes ORDER BY sort_order ASC, id ASC")
+      .all();
 
     const items = rows.map((item) => ({
       ...item,

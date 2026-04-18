@@ -27,7 +27,7 @@ function getAllDogLikes() {
       `
       SELECT id
       FROM my_dog_likes
-      ORDER BY id ASC
+      ORDER BY sort_order ASC, id ASC
       `
     )
     .all();

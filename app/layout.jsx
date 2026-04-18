@@ -2,6 +2,7 @@ import "./globals.css";
 import styles from "./layout.module.css";
 import Script from "next/script";
 import Header from "../components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata = {
   metadataBase: new URL("https://stuffmydogloves.com"),
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
       <body className={styles.page}>
         <Header />
         <main className={styles.main}>{children}</main>
+        <Footer />
       </body>
 
       <Script
