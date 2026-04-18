@@ -231,8 +231,22 @@
 
 /* Mobile */
 @media (max-width: 640px) {
-  .heartIcon {
-    width: 32px;
-    height: 32px;
+  .bottomRow {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    min-height: 36px;
+    margin-top: -0.6rem;
+  }
+
+  .thoughtArea {
+    padding-top: 0.2rem;
+  }
+
+  .thought {
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+  .shareIcon {
+    width: 18px;
+    height: 18px;
   }
 }
