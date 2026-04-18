@@ -13,7 +13,28 @@ export const metadata = {
     default: "Stuff My Dog Loves",
     template: "%s | Stuff My Dog Loves",
   },
-  description: "A pixel art gallery of everything my dog loves.",
+  description: "Tiny animated moments of what my dog loves.",
+  openGraph: {
+    title: "Stuff My Dog Loves",
+    description: "Tiny animated moments of what my dog loves.",
+    url: "https://stuffmydogloves.com",
+    siteName: "Stuff My Dog Loves",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Pixel art dog peeking over a table",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Stuff My Dog Loves",
+    description: "Tiny animated moments of what my dog loves.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -23,24 +44,24 @@ export default function RootLayout({ children }) {
         <Header />
         <main className={styles.main}>{children}</main>
         <Footer />
+
+        <Script
+          src="https://plausible.io/js/pa-irYK1VZ9R2L9KOTP3znEz.js"
+          strategy="afterInteractive"
+        />
+
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`
+            window.plausible = window.plausible || function () {
+              (window.plausible.q = window.plausible.q || []).push(arguments);
+            };
+            window.plausible.init = window.plausible.init || function (i) {
+              window.plausible.o = i || {};
+            };
+            window.plausible.init();
+          `}
+        </Script>
       </body>
-
-      <Script
-        src="https://plausible.io/js/pa-irYK1VZ9R2L9KOTP3znEz.js"
-        strategy="afterInteractive"
-      />
-
-      <Script id="plausible-init" strategy="afterInteractive">
-        {`
-          window.plausible = window.plausible || function () {
-            (window.plausible.q = window.plausible.q || []).push(arguments);
-          };
-          window.plausible.init = window.plausible.init || function (i) {
-            window.plausible.o = i || {};
-          };
-          window.plausible.init();
-        `}
-      </Script>
     </html>
   );
 }
