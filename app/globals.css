@@ -82,3 +82,33 @@ body::before {
 :focus {
   outline: none;
 }
+
+
+@media (max-width: 640px) {
+  body::before {
+    opacity: 0.1;
+
+    background-image:
+      url("/images/smallpaw.png"),
+      url("/images/smallheart.png"),
+      url("/images/smallpaw.png"),
+      url("/images/smallheart.png");
+
+
+    background-repeat: no-repeat;
+
+    background-size:
+      24px 24px,
+      24px 24px,
+      32px 32px,
+      32px 32px;
+
+
+    background-position:
+      5% 12%,     /* top-left */
+      96% 15%,    /* top-right */
+      12% 90%,    /* bottom-left */
+      94% 94%;   /* bottom-right */
+
+  }
+}
