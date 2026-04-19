@@ -1,9 +1,9 @@
 .container {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .buttonGroup {
@@ -42,3 +42,35 @@
 }
 
 
+.intro {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.introRow {
+  display: flex;
+  align-items: flex-start; /* instead of center */
+  gap: 0.9rem;
+  max-width: 30rem;
+}
+
+.introIcon {
+  width: 36px;
+  height: auto;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.introTitle {
+  margin: 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  line-height: 1.35;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.highlight {
+  color: var(--pink);
+}

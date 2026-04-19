@@ -163,6 +163,22 @@ export default function List() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.intro}>
+        <div className={styles.introRow}>
+          <img
+            src="/images/viggo-head.png"
+            alt="Viggo"
+            className={`${styles.introIcon} pixelated`}
+          />
+
+          <h1 className={styles.introTitle}>
+            A collection of tiny moments
+            <br />
+            about <span className={styles.highlight}>everything</span> my dog loves
+          </h1>
+        </div>
+      </div>
+
       <Card
         item={currentItem}
         onHeart={handleHeart}
