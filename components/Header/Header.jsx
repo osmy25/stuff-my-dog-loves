@@ -6,7 +6,17 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo}>
-          Stuff My Dog <span>Loves</span>
+          <img
+            src="/images/smallheart.png"
+            alt=""
+            className={`${styles.logoHeart} pixelated`}
+            aria-hidden="true"
+          />
+
+          <span className={styles.logoText}>
+            Stuff My Dog{" "}
+            <span className={styles.logoAccent}>Loves</span>
+          </span>
         </Link>
 
         <nav className={styles.nav}>
