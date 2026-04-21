@@ -174,7 +174,7 @@ export default function List() {
           <h1 className={styles.introTitle}>
             A collection of tiny moments
             <br />
-            about <span className={styles.highlight}>everything</span> my dog loves
+            about <span className={styles.highlight}>everything</span> my dog Viggo loves
           </h1>
         </div>
       </div>
