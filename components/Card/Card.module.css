@@ -173,6 +173,8 @@
     opacity 0.18s ease,
     transform 0.18s ease,
     color 0.18s ease;
+  position: relative;
+  top: 10px;
 }
 
 .shareButton:hover {
@@ -194,10 +196,7 @@
   opacity: 1;
 }
 
-.shareButton,
-.heartButton {
-  transform: translateY(10px);
-}
+
 
 
 
