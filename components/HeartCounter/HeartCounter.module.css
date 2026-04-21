@@ -16,6 +16,7 @@
   text-align: right;
   display: inline-block;
   font-family: monospace;
+  transform: translateY(10px);
 }
 
 .heartButton {
@@ -28,7 +29,7 @@
   cursor: pointer;
   opacity: 0.75;
   transition: opacity 0.15s ease;
-  transform: translateY(5px);
+  transform: translateY(10px);
 }
 
 
