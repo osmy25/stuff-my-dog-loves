@@ -28,7 +28,9 @@
   cursor: pointer;
   opacity: 0.75;
   transition: opacity 0.15s ease;
+  transform: translateY(5px);
 }
+
 
 .heartIcon {
   width: 48px;
