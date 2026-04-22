@@ -2,8 +2,6 @@ export const runtime = "nodejs";
 
 import db from "../../../../../lib/db";
 
-
-
 // för heartbutton +1 POST
 export async function POST(request, { params }) {
   try {
@@ -27,15 +25,10 @@ export async function POST(request, { params }) {
     }
 
     const item = db
-      .prepare("SELECT * FROM my_dog_likes WHERE id = ?")
+      .prepare("SELECT id, hearts FROM my_dog_likes WHERE id = ?")
       .get(numericId);
 
-    return Response.json({
-      item: {
-        ...item,
-        thoughts: item.thoughts ? JSON.parse(item.thoughts) : [],
-      },
-    });
+    return Response.json({ item });
   } catch (error) {
     console.error(error);
     return Response.json({ error: "Something went wrong" }, { status: 500 });
