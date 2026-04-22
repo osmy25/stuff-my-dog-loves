@@ -17,13 +17,15 @@ export const metadata = {
     canonical: "/",
   },
   title: {
-    default: "Stuff My Dog Loves",
+    default: "Stuff My Dog Loves - Tiny Animated Dog Moments",
     template: "%s | Stuff My Dog Loves",
   },
-  description: "Tiny animated moments of what my dog loves.",
+  description:
+    "Tiny animated moments of what my dog Viggo loves — fridge noises, chaos, and very strong opinions. Featuring questionable dog thoughts.",
   openGraph: {
     title: "Stuff My Dog Loves",
-    description: "Tiny animated moments of what my dog loves.",
+    description:
+      "Tiny animated moments of what my dog Viggo loves — fridge noises, chaos, and very strong opinions. Featuring questionable dog thoughts.",
     url: "https://stuffmydogloves.com",
     siteName: "Stuff My Dog Loves",
     images: [
@@ -31,7 +33,7 @@ export const metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Pixel art dog peeking over a table",
+        alt: "Dog peeking over a table",
       },
     ],
     type: "website",
@@ -39,7 +41,8 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Stuff My Dog Loves",
-    description: "Tiny animated moments of what my dog loves.",
+    description:
+      "Tiny animated moments of what my dog Viggo loves — fridge noises, chaos, and very strong opinions. Featuring questionable dog thoughts.",
     images: ["/og-image.png"],
   },
 };
