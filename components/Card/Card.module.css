@@ -64,18 +64,16 @@
   margin-top: -0.75rem;
 }
 
-.thoughtButton .rare {
-  color: #444;
-}
-
-.thoughtButton .legendary {
-  color: #6b625a;
-  letter-spacing: 0.05em;
-  transition:
-    opacity 0.35s ease,
-    transform 0.35s ease,
-    letter-spacing 0.2s ease,
-    color 0.2s ease;
+.thoughtButton {
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.18s ease;
 }
 
 .thought {
@@ -97,6 +95,22 @@
     color 0.2s ease;
 }
 
+.thought.normal {
+  color: var(--text-light);
+}
+
+.thought.rare {
+  color: #554f60;
+}
+
+.thought.legendary {
+  color: #6b625a;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 1px rgba(107, 98, 90, 0.14);
+}
+
+
+
 .visible {
   transform: translateY(0);
   opacity: 0.8;
@@ -108,17 +122,7 @@
   min-width: 0;
 }
 
-.thoughtButton {
-  display: inline-block;
-  width: 100%;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  text-align: center;
-  -webkit-tap-highlight-color: transparent;
-  transition: opacity 0.18s ease;
-}
+
 
 .fade {
   opacity: 0;

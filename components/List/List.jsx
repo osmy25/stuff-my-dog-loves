@@ -212,10 +212,14 @@ export default function List() {
           />
 
           <h1 className={styles.introTitle}>
-            A collection of tiny moments
+            Tiny moments
             <br />
             about everything my dog{" "}
-            <span className={styles.highlight}>Viggo</span> loves
+            <span className={styles.highlight}>Viggo</span> loves.
+            <br />
+            <span className={styles.whisper}>
+              you might notice… his thoughts change
+            </span>
           </h1>
         </div>
       </div>
