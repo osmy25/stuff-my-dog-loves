@@ -38,8 +38,7 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
   const [isFading, setIsFading] = useState(false);
   const [copiedId, setCopiedId] = useState(null);
 
-
-  async function onShare(id, name) {
+  async function handleShare(id, name) {
     const url = `${window.location.origin}/card/${id}`;
 
     try {
@@ -49,8 +48,35 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
           text: name,
           url,
         });
+
+        if (
+          typeof window !== "undefined" &&
+          typeof window.plausible === "function"
+        ) {
+          window.plausible("Share", {
+            props: {
+              id: String(id),
+              name,
+              method: "native",
+            },
+          });
+        }
       } else {
         await navigator.clipboard.writeText(url);
+
+        if (
+          typeof window !== "undefined" &&
+          typeof window.plausible === "function"
+        ) {
+          window.plausible("Share", {
+            props: {
+              id: String(id),
+              name,
+              method: "copy_link",
+            },
+          });
+        }
+
         setCopiedId(id);
 
         setTimeout(() => {
@@ -62,18 +88,6 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
     }
   }
 
-  async function handleShareThought() {
-    if (!item || !randomThought?.text) return;
-
-    const shareText = `Stuff My Dog Loves\n${item.name}\n"${randomThought.text}"`;
-
-    try {
-      await navigator.clipboard.writeText(shareText);
-    } catch (error) {
-      console.error("Failed to copy thought:", error);
-    }
-  }
-  
   useEffect(() => {
     setRandomThought(pickThought(item?.thoughts));
   }, [item?.id, item?.thoughts]);
@@ -116,13 +130,12 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
         <p className={styles.title}>{item.name}</p>
 
         <div className={styles.bottomRow}>
-
           <button
             type="button"
             className={`${styles.shareButton} ${
               copiedId === item.id ? styles.copied : ""
             }`}
-            onClick={() => onShare(item.id, item.name)}
+            onClick={() => handleShare(item.id, item.name)}
             aria-label={`Share ${item.name}`}
           >
             {copiedId === item.id ? (
@@ -137,9 +150,6 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
               </svg>
             )}
           </button>
-
-
-
 
           <div className={styles.thoughtArea}>
             {randomThought && (
