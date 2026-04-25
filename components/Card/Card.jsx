@@ -103,6 +103,15 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
 
     if (totalThoughts <= 1) return;
 
+    if (typeof window !== "undefined" && typeof window.plausible === "function") {
+      window.plausible("Thought Click", {
+        props: {
+          id: String(item.id),
+          name: item.name,
+        },
+      });
+    }
+
     setIsFading(true);
 
     setTimeout(() => {
