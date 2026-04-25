@@ -9,8 +9,6 @@ export default function AboutPage() {
     <div className={styles.container}>
       <h1 className={styles.title}>About</h1>
 
-      <p className={styles.subtitle}>A small collection</p>
-
       <p className={styles.text}>
         This is a collection of things my dog loves.
       </p>
