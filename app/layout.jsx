@@ -30,10 +30,10 @@ export const metadata = {
     siteName: "Stuff My Dog Loves",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image2.png",
         width: 1200,
         height: 630,
-        alt: "Dog peeking over a table",
+        alt: "Dog smiling with logo",
       },
     ],
     type: "website",
