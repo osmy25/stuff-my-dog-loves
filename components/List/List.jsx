@@ -15,6 +15,8 @@ export default function List() {
   const [reaction, setReaction] = useState(null);
   const [heartsLoaded, setHeartsLoaded] = useState(false);
   const [hasTrackedInitialView, setHasTrackedInitialView] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const pathname = usePathname();
   const idFromUrl = pathname.startsWith("/card/")
@@ -201,6 +203,39 @@ export default function List() {
       ? heartedItems.includes(currentItem.id)
       : false;
 
+  const minSwipeDistance = 50;
+
+  function onTouchStart(e) {
+    setTouchEnd(null);
+    setTouchStart({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY,
+    });
+  }
+
+  function onTouchMove(e) {
+    setTouchEnd({
+      x: e.targetTouches[0].clientX,
+      y: e.targetTouches[0].clientY,
+    });
+  }
+
+  function onTouchEnd() {
+    if (!touchStart || !touchEnd) return;
+
+    const distanceX = touchStart.x - touchEnd.x;
+    const distanceY = touchStart.y - touchEnd.y;
+
+    if (Math.abs(distanceX) < minSwipeDistance) return;
+    if (Math.abs(distanceX) < Math.abs(distanceY)) return;
+
+    if (distanceX > 0) {
+      handleNext();
+    } else {
+      handlePrev();
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.intro}>
@@ -220,12 +255,19 @@ export default function List() {
         </div>
       </div>
 
-      <Card
-        item={currentItem}
-        onHeart={handleHeart}
-        isHearted={isHearted}
-        reaction={reaction}
-      />
+      <div
+        className={styles.swipeWrapper}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <Card
+          item={currentItem}
+          onHeart={handleHeart}
+          isHearted={isHearted}
+          reaction={reaction}
+        />
+      </div>
 
       <div className={styles.buttonGroup}>
         <button

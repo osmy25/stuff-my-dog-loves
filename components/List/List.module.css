@@ -75,16 +75,8 @@
   color: var(--pink);
 }
 
-.whisper {
-  display: block;
-  margin-top: 0.1rem;
-  padding-left: 0.6rem;
-
-  font-size: 0.65em;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-
-  opacity: 0.35;
-
-  font-style: italic;
+.swipeWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
