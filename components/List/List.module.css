@@ -80,3 +80,17 @@
   display: flex;
   justify-content: center;
 }
+
+.fadeIn {
+  animation: softIn 140ms ease;
+}
+
+@keyframes softIn {
+  from {
+    opacity: 0.75;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
