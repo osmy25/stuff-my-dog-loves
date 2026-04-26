@@ -43,7 +43,7 @@ export const metadata = {
     title: "Stuff My Dog Loves",
     description:
       "Tiny animated moments of what my dog Viggo loves — fridge noises, chaos, and very strong opinions. Featuring questionable dog thoughts.",
-    images: ["/og-image.png"],
+    images: ["/og-image2.png"],
   },
 };
 
