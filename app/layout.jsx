@@ -30,7 +30,7 @@ export const metadata = {
     siteName: "Stuff My Dog Loves",
     images: [
       {
-        url: "/og-image2.png",
+        url: "/og-image3.png",
         width: 1200,
         height: 630,
         alt: "Dog smiling with logo",
@@ -43,7 +43,7 @@ export const metadata = {
     title: "Stuff My Dog Loves",
     description:
       "Tiny animated moments of what my dog Viggo loves — fridge noises, chaos, and very strong opinions. Featuring questionable dog thoughts.",
-    images: ["/og-image2.png"],
+    images: ["/og-image3.png"],
   },
 };
 
