@@ -89,7 +89,13 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
   }
 
   useEffect(() => {
-    setRandomThought(pickThought(item?.thoughts));
+    setRandomThought(null);
+
+    const timer = setTimeout(() => {
+      setRandomThought(pickThought(item?.thoughts));
+    }, 160);
+
+    return () => clearTimeout(timer);
   }, [item?.id, item?.thoughts]);
 
   function handleShuffleThought() {

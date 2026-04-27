@@ -202,6 +202,21 @@
 
 
 
+.thought {
+  opacity: 0;
+  transform: translateY(4px);
+  animation: thoughtIn 220ms ease-out forwards;
+}
+
+@keyframes thoughtIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
 
 
 /* Reaction animation */
