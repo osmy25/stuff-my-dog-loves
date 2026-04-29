@@ -132,6 +132,15 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
 
   return (
     <div className={styles.card}>
+
+
+      <span className={styles.cardIndex}>
+        #{item.id}
+      </span>
+
+
+
+
       <div className={styles.imageContainer}>
         <img
           src={item.image}

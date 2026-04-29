@@ -275,7 +275,7 @@ export default function List() {
           disabled={items.length === 0}
           className={`${styles.button} ${styles.prev}`}
         >
-          ← Prev
+          ← Back
         </button>
 
         <button
@@ -283,7 +283,7 @@ export default function List() {
           disabled={items.length === 0}
           className={`${styles.button} ${styles.next}`}
         >
-          Next →
+          More →
         </button>
       </div>
     </div>
