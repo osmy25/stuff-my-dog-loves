@@ -19,10 +19,19 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className={styles.nav}>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-        </nav>
+          <nav className={styles.nav}>
+            <Link href="/">home</Link>
+
+            <Link href="/about">about</Link>
+
+            <Link
+              href="https://buymeacoffee.com/stuffmydogloves"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              buy viggo a treat
+            </Link>
+          </nav>
       </div>
     </header>
   );
