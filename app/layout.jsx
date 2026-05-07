@@ -56,21 +56,11 @@ export default function RootLayout({ children }) {
         <Footer />
 
         <Script
-          src="https://plausible.io/js/pa-irYK1VZ9R2L9KOTP3znEz.js"
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="55e4118b-ba9b-44ec-8320-3d199beaba21"
           strategy="afterInteractive"
         />
-
-        <Script id="plausible-init" strategy="afterInteractive">
-          {`
-            window.plausible = window.plausible || function () {
-              (window.plausible.q = window.plausible.q || []).push(arguments);
-            };
-            window.plausible.init = window.plausible.init || function (i) {
-              window.plausible.o = i || {};
-            };
-            window.plausible.init();
-          `}
-        </Script>
       </body>
     </html>
   );
