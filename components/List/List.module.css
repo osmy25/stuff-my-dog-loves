@@ -56,10 +56,17 @@
 }
 
 .introIcon {
-  width: 36px;
+  width: 48px;
   height: auto;
   flex-shrink: 0;
   margin-top: 0.2rem;
+  cursor:pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.introIcon:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
 }
 
 .introTitle {
