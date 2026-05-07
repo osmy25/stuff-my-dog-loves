@@ -4,6 +4,8 @@ export const metadata = {
   title: "Notes",
 };
 
+export const dynamic = "force-dynamic";
+
 const notes = [
   {
     date: "may 7, 2026",
