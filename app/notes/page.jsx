@@ -16,7 +16,7 @@ const notes = [
   },
   {
     date: "may 6, 2026",
-    text: "we watched the garbage truck together",
+    text: "we watched the garbage truck together\nit was intense",
   },
   {
     date: "may 7, 2026",
