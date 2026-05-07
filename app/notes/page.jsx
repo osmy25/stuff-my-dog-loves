@@ -1,10 +1,9 @@
 import styles from "./page.module.css";
+import NotesClient from "./notesClient";
 
 export const metadata = {
   title: "Notes",
 };
-
-export const dynamic = "force-dynamic";
 
 const notes = [
   {
@@ -13,19 +12,18 @@ const notes = [
   },
   {
     date: "may 2, 2026",
-    text: "viggo is barking in the yard.\nhe found a smelly old dirty ball.\nhe loves it",
+    text: "viggo is outside barking\nhe found an old dirty ball\n\nhe loves it",
+  },
+  {
+    date: "may 5, 2026",
+    text: "viggo is side-staring me while i eat pizza\n he think he is so sneaky",
   },
 ];
 
 export default function NotesPage() {
-  const note = notes[Math.floor(Math.random() * notes.length)];
-
   return (
     <main className={styles.page}>
-      <article className={styles.note}>
-        <p className={styles.date}>{note.date}</p>
-        <p className={styles.text}>{note.text}</p>
-      </article>
+      <NotesClient notes={notes} />
     </main>
   );
 }
