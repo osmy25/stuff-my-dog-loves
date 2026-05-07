@@ -6,8 +6,8 @@ export const metadata = {
 
 const notes = [
   {
-    date: "may 5, 2026",
-    text: "viggo is side-eying me while im eating pizza,\n he doesnt think I see it, haha",
+    date: "may 7, 2026",
+    text: "we watched the garbage truck together",
   },
   {
     date: "may 2, 2026",
@@ -16,16 +16,14 @@ const notes = [
 ];
 
 export default function NotesPage() {
+  const note = notes[Math.floor(Math.random() * notes.length)];
+
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        {notes.map((note, index) => (
-          <article key={index} className={styles.note}>
-            <p className={styles.date}>{note.date}</p>
-            <p className={styles.text}>{note.text}</p>
-          </article>
-        ))}
-      </div>
+      <article className={styles.note}>
+        <p className={styles.date}>{note.date}</p>
+        <p className={styles.text}>{note.text}</p>
+      </article>
     </main>
   );
 }

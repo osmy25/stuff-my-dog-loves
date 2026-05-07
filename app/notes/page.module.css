@@ -1,29 +1,69 @@
-/* page.module.css */
-
 .page {
-  min-height: 100vh;
-  padding: 5rem 1.5rem;
-}
+  display: flex;
+  justify-content: center;
 
-.container {
-  max-width: 600px;
-  margin: 0 auto;
+  padding-top: 12vh;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: clamp(5rem, 20vh, 14rem);
 }
 
 .note {
-  margin-bottom: 5rem;
+  width: 100%;
+  max-width: 440px;
+
+  padding: 2.25rem;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(3px);
+
+  animation: fadeIn 700ms ease both;
 }
 
 .date {
-  margin-bottom: 0.75rem;
-  font-size: 0.75rem;
-  color: #777;
+  margin-bottom: 1rem;
+
+  font-size: 0.85rem;
+  opacity: 0.58;
+
   text-transform: lowercase;
+  letter-spacing: 0.04em;
 }
 
 .text {
-  font-size: 0.95rem;
-  line-height: 1.9;
-  color: #9a9a9a;
   white-space: pre-line;
+
+  font-size: 1.08rem;
+  line-height: 1.9;
+  padding-left: 0.9rem;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding-top: 9vh;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 6rem;
+  }
+
+  .note {
+    padding: 2rem;
+  }
 }
