@@ -7,7 +7,7 @@ export const metadata = {
 const notes = [
   {
     date: "may 5, 2026",
-    text: "side-eying me while eating pizza,\n he doesnt think I see it, haha",
+    text: "viggo is side-eying me while im eating pizza,\n he doesnt think I see it, haha",
   },
   {
     date: "may 2, 2026",
