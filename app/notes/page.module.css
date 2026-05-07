@@ -1,25 +1,35 @@
 .page {
   display: flex;
   justify-content: center;
-
+  min-height: 420px;
   padding-top: 12vh;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: clamp(5rem, 20vh, 14rem);
 }
 
+
 .note {
   width: 100%;
   max-width: 440px;
 
+  min-height: 220px;
+
   padding: 1.5rem 1rem;
+
   cursor: pointer;
 
-  animation: fadeIn 700ms ease both;
+  opacity: 1;
+  transform: translateY(0);
+
+  transition:
+    opacity 350ms ease,
+    transform 350ms ease;
 }
 
-.note:hover {
-  opacity: 0.82;
+.note[data-visible="false"] {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .date {
@@ -43,18 +53,6 @@
   color: rgba(58, 50, 70, 0.78);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (max-width: 600px) {
   .page {
     padding-top: 9vh;
@@ -66,8 +64,7 @@
   .note {
     max-width: 100%;
     padding: 1.25rem 0.5rem;
-    
-
+    min-height: 180px;
   }
 
   .text {
@@ -75,6 +72,5 @@
     font-size: 1rem;
     line-height: 1.85;
     color: rgba(58, 50, 70, 0.84);
-
   }
 }
