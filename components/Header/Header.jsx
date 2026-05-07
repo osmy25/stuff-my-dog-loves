@@ -20,7 +20,6 @@ export default function Header() {
         </Link>
 
           <nav className={styles.nav}>
-            <Link href="/">home</Link>
 
             <Link href="/about">about</Link>
 

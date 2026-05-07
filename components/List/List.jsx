@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import Card from "../Card/Card";
 import styles from "./List.module.css";
 
@@ -240,11 +241,13 @@ export default function List() {
     <div className={styles.container}>
       <div className={styles.intro}>
         <div className={styles.introRow}>
-          <img
-            src="/images/viggo-head.png"
-            alt="Viggo"
-            className={`${styles.introIcon} pixelated`}
-          />
+          <Link href="/notes">
+            <img
+              src="/images/viggo-head.png"
+              alt="Viggo"
+              className={`${styles.introIcon} pixelated`}
+            />
+          </Link>
 
           <h1 className={styles.introTitle}>
             A collection of tiny moments
