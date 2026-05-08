@@ -49,33 +49,19 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
           url,
         });
 
-        if (
-          typeof window !== "undefined" &&
-          typeof window.plausible === "function"
-        ) {
-          window.plausible("Share", {
-            props: {
-              id: String(id),
-              name,
-              method: "native",
-            },
-          });
-        }
+        window.umami?.track("Share", {
+          id: String(id),
+          name,
+          method: "native",
+        });
       } else {
         await navigator.clipboard.writeText(url);
 
-        if (
-          typeof window !== "undefined" &&
-          typeof window.plausible === "function"
-        ) {
-          window.plausible("Share", {
-            props: {
-              id: String(id),
-              name,
-              method: "copy_link",
-            },
-          });
-        }
+        window.umami?.track("Share", {
+          id: String(id),
+          name,
+          method: "copy_link",
+        });
 
         setCopiedId(id);
 
@@ -109,14 +95,10 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
 
     if (totalThoughts <= 1) return;
 
-    if (typeof window !== "undefined" && typeof window.plausible === "function") {
-      window.plausible("Thought Click", {
-        props: {
-          id: String(item.id),
-          name: item.name,
-        },
-      });
-    }
+    window.umami?.track("Thought Click", {
+      id: String(item.id),
+      name: item.name,
+    });
 
     setIsFading(true);
 
@@ -132,21 +114,10 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
 
   return (
     <div className={styles.card}>
-
-
-      <span className={styles.cardIndex}>
-        #{item.id}
-      </span>
-
-
-
+      <span className={styles.cardIndex}>#{item.id}</span>
 
       <div className={styles.imageContainer}>
-        <img
-          src={item.image}
-          alt={item.name}
-          className={styles.image}
-        />
+        <img src={item.image} alt={item.name} className={styles.image} />
       </div>
 
       <div className={styles.textContainer}>
@@ -179,7 +150,9 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
             {randomThought && (
               <button
                 type="button"
-                className={`${styles.thoughtButton} ${isFading ? styles.fade : ""}`}
+                className={`${styles.thoughtButton} ${
+                  isFading ? styles.fade : ""
+                }`}
                 onClick={handleShuffleThought}
                 aria-label={`Show another thought about ${item.name}`}
               >
@@ -195,9 +168,7 @@ export default function Card({ item, onHeart, isHearted, reaction }) {
               </button>
             )}
 
-            {reaction && (
-              <span className={styles.reaction}>{reaction}</span>
-            )}
+            {reaction && <span className={styles.reaction}>{reaction}</span>}
           </div>
 
           <HeartCounter

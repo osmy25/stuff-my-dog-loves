@@ -34,7 +34,14 @@ export default function HeartCounter({
       <button
         type="button"
         className={`${styles.heartButton} ${isHearted ? styles.hearted : ""}`}
-        onClick={() => onHeart(itemId)}
+        onClick={() => {
+          window.umami?.track("Like", {
+            id: String(itemId),
+            name: itemName,
+          });
+
+          onHeart(itemId);
+        }}
         aria-label={`Give ${itemName} a heart`}
         disabled={isHearted}
       >
