@@ -241,7 +241,12 @@ export default function List() {
     <div className={styles.container}>
       <div className={styles.intro}>
         <div className={styles.introRow}>
-          <Link href="/notes">
+          <Link
+            href="/notes"
+            onClick={() => {
+              window.umami?.track("Secret notes discovery");
+            }}
+          >
             <img
               src="/images/viggo-head.png"
               alt="Viggo"
