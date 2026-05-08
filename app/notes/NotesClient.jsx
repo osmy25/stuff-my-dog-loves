@@ -1,30 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./page.module.css";
 
 export default function NotesClient({ notes }) {
-  const [currentNote, setCurrentNote] = useState(notes[0]);
+  const [currentIndex, setCurrentIndex] = useState(notes.length - 1);
   const [visible, setVisible] = useState(true);
 
-  useEffect(() => {
-    setCurrentNote(
-      notes[Math.floor(Math.random() * notes.length)]
-    );
-  }, [notes]);
-
-  function getRandomNote(excludeText) {
-    let next;
-
-    do {
-      next = notes[Math.floor(Math.random() * notes.length)];
-    } while (
-      notes.length > 1 &&
-      next.text === excludeText
-    );
-
-    return next;
-  }
+  const currentNote = notes[currentIndex];
 
   function switchNote() {
     if (!visible) return;
@@ -32,9 +15,9 @@ export default function NotesClient({ notes }) {
     setVisible(false);
 
     setTimeout(() => {
-      const nextNote = getRandomNote(currentNote.text);
-
-      setCurrentNote(nextNote);
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? notes.length - 1 : prevIndex - 1
+      );
 
       setVisible(true);
     }, 600);
@@ -51,9 +34,7 @@ export default function NotesClient({ notes }) {
       >
         <p className={styles.date}>{currentNote.date}</p>
 
-        <p className={styles.text}>
-          {currentNote.text}
-        </p>
+        <p className={styles.text}>{currentNote.text}</p>
       </div>
     </article>
   );
