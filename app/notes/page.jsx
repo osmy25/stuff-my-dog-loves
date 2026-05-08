@@ -12,15 +12,15 @@ const notes = [
   },
   {
     date: "may 4, 2026",
-    text: "viggo is side-staring me while i eat pizza\nhe think he is so sneaky",
+    text: "viggo is side-staring me\nwhile i eat pizza\n\nhe think he is so sneaky",
   },
   {
     date: "may 6, 2026",
-    text: "we watched the garbage truck together\nit was intense",
+    text: "right before lunch\nwe watched the garbage truck\n\nit was intense",
   },
   {
     date: "may 7, 2026",
-    text: "on a rock in the woods\n barking how great he is\n\nand he is",
+    text: "on a rock in the woods\n barking how great he is\n\n... and he is",
   },  
 ];
 

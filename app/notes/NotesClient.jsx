@@ -37,18 +37,24 @@ export default function NotesClient({ notes }) {
       setCurrentNote(nextNote);
 
       setVisible(true);
-    }, 350);
+    }, 600);
   }
 
   return (
-    <article
-      className={styles.note}
-      data-visible={visible}
-      onClick={switchNote}
-    >
-      <p className={styles.date}>{currentNote.date}</p>
+    <article className={styles.note}>
+      <p className={styles.label}>~ notes ~</p>
 
-      <p className={styles.text}>{currentNote.text}</p>
+      <div
+        className={styles.content}
+        data-visible={visible}
+        onClick={switchNote}
+      >
+        <p className={styles.date}>{currentNote.date}</p>
+
+        <p className={styles.text}>
+          {currentNote.text}
+        </p>
+      </div>
     </article>
   );
 }
