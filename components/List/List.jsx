@@ -15,7 +15,6 @@ export default function List() {
   const [mounted, setMounted] = useState(false);
   const [reaction, setReaction] = useState(null);
   const [heartsLoaded, setHeartsLoaded] = useState(false);
-  const [hasTrackedInitialView, setHasTrackedInitialView] = useState(false);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
@@ -23,22 +22,6 @@ export default function List() {
   const idFromUrl = pathname.startsWith("/card/")
     ? pathname.split("/card/")[1]
     : null;
-
-  function trackCardView(item, source) {
-    if (
-      typeof window !== "undefined" &&
-      typeof window.plausible === "function" &&
-      item
-    ) {
-      window.plausible("Card View", {
-        props: {
-          id: String(item.id),
-          name: item.name,
-          source,
-        },
-      });
-    }
-  }
 
   useEffect(() => {
     setMounted(true);
@@ -94,14 +77,6 @@ export default function List() {
 
   const currentItem = items[currentIndex];
 
-  useEffect(() => {
-    if (!mounted || !currentItem || hasTrackedInitialView) return;
-
-    const source = idFromUrl ? "url" : "initial";
-    trackCardView(currentItem, source);
-    setHasTrackedInitialView(true);
-  }, [mounted, currentItem, hasTrackedInitialView, idFromUrl]);
-
   function updateUrl(id) {
     window.history.replaceState(null, "", `/card/${id}`);
   }
@@ -120,18 +95,6 @@ export default function List() {
       if (!response.ok) {
         console.error("Failed to add heart");
         return;
-      }
-
-      if (
-        typeof window !== "undefined" &&
-        typeof window.plausible === "function"
-      ) {
-        window.plausible("Like", {
-          props: {
-            id: String(id),
-            name: currentItem?.name ?? "unknown",
-          },
-        });
       }
 
       setItems((prevItems) =>
@@ -160,8 +123,7 @@ export default function List() {
         "very nice yes",
       ];
 
-      const random =
-        reactions[Math.floor(Math.random() * reactions.length)];
+      const random = reactions[Math.floor(Math.random() * reactions.length)];
 
       setReaction(null);
 
@@ -185,7 +147,6 @@ export default function List() {
 
     setCurrentIndex(nextIndex);
     updateUrl(nextItem.id);
-    trackCardView(nextItem, "next");
   }
 
   function handlePrev() {
@@ -196,7 +157,6 @@ export default function List() {
 
     setCurrentIndex(prevIndex);
     updateUrl(prevItem.id);
-    trackCardView(prevItem, "prev");
   }
 
   const isHearted =
