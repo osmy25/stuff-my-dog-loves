@@ -30,6 +30,10 @@ const notes = [
     date: "may 13th, 2026",
     text: "why is old dirty ball under sofa?\nviggo says he has no idea",
   }, 
+  {
+    date: "may 17th, 2026",
+    text: "viggo carried girlfriend outside\nnow has:\n\nsoaking wet girlfriend",
+  },
 ];
 
 export default function NotesPage() {
