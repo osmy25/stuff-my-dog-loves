@@ -21,11 +21,11 @@ export const metadata = {
     template: "%s | Stuff My Dog Loves",
   },
   description:
-    "Tiny animated moments of what my dog Viggo loves — fridge noises, chaos, and very strong opinions. Featuring questionable dog thoughts.",
+    "Tiny animated moments about my dog Viggo and the stuff he loves.",
   openGraph: {
     title: "Stuff My Dog Loves",
     description:
-      "Tiny animated moments of what my dog Viggo loves — fridge noises, chaos, and very strong opinions. Featuring questionable dog thoughts.",
+      "Tiny animated moments about my dog Viggo and the stuff he loves.",
     url: "https://stuffmydogloves.com",
     siteName: "Stuff My Dog Loves",
     images: [
@@ -42,7 +42,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Stuff My Dog Loves",
     description:
-      "Tiny animated moments of what my dog Viggo loves — fridge noises, chaos, and very strong opinions. Featuring questionable dog thoughts.",
+      "Tiny animated moments about my dog Viggo and the stuff he loves.",
     images: ["/og-image4.png"],
   },
 };
