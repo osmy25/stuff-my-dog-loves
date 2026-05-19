@@ -10,11 +10,7 @@ export default function AboutPage() {
       <h1 className={styles.title}>About</h1>
 
       <p className={styles.text}>
-        This is a collection of things my dog loves.
-      </p>
-
-      <p className={styles.text}>
-        Each one is a small moment — and what he might be thinking.
+        This is a collection of stuff my dog loves.
       </p>
 
       <p className={styles.name}>

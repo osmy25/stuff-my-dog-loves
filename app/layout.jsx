@@ -17,15 +17,15 @@ export const metadata = {
     canonical: "/",
   },
   title: {
-    default: "Stuff My Dog Loves - Tiny Animated Dog Moments",
+    default: "Stuff My Dog Loves — Tiny Animated Pixel-Art Moments",
     template: "%s | Stuff My Dog Loves",
   },
   description:
-    "Tiny animated moments about my dog Viggo and the stuff he loves.",
+    "Tiny animated pixel-art moments about my dog Viggo and the stuff he loves.",
   openGraph: {
     title: "Stuff My Dog Loves",
     description:
-      "Tiny animated moments about my dog Viggo and the stuff he loves.",
+      "Tiny animated pixel-art moments about my dog Viggo and the stuff he loves.",
     url: "https://stuffmydogloves.com",
     siteName: "Stuff My Dog Loves",
     images: [
@@ -33,7 +33,7 @@ export const metadata = {
         url: "/og-image4.png",
         width: 1200,
         height: 630,
-        alt: "Dog smiling with logo",
+        alt: "Pixel dog smiling",
       },
     ],
     type: "website",
@@ -42,7 +42,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Stuff My Dog Loves",
     description:
-      "Tiny animated moments about my dog Viggo and the stuff he loves.",
+      "Tiny animated pixel-art moments about my dog Viggo and the stuff he loves.",
     images: ["/og-image4.png"],
   },
 };
