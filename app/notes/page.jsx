@@ -20,7 +20,7 @@ const notes = [
   },
   {
     date: "may 7th, 2026",
-    text: "on a rock in the woods\n barking how great he is\n\n... and he is",
+    text: "on a rock in the woods\nbarking how great he is\n\n... and he is",
   },
   {
     date: "may 9th, 2026",
@@ -33,6 +33,10 @@ const notes = [
   {
     date: "may 17th, 2026",
     text: "viggo carried girlfriend outside\nnow has:\n\nsoaking wet girlfriend",
+  },
+  {
+    date: "may 20th, 2026",
+    text: "chewed a stick down to atoms,\nthen was surprised it was gone\n\nwe still went to look for it",
   },
 ];
 
