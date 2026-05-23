@@ -241,17 +241,19 @@ export default function List() {
         <button
           onClick={handlePrev}
           disabled={items.length === 0}
-          className={`${styles.button} ${styles.prev}`}
+          className={styles.button}
+          aria-label="Back"
         >
-          ← Back
+          <img src="/images/backbutton.png" alt="" />
         </button>
 
         <button
           onClick={handleNext}
           disabled={items.length === 0}
-          className={`${styles.button} ${styles.next}`}
+          className={styles.button}
+          aria-label="More"
         >
-          More →
+          <img src="/images/morebutton.png" alt="" />
         </button>
       </div>
     </div>

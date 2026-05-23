@@ -13,27 +13,45 @@
 }
 
 .button {
-  padding: 0.625rem 1.25rem;
-  font-weight: 700;
-  border-radius: 9999px;
-  border: 2px solid transparent;
-  transition: transform 0.2s ease, filter 0.2s ease;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  padding: 0;
+  margin: 0;
+
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  line-height: 0;
+
+  transition:
+    filter 0.08s ease,
+    opacity 0.2s ease;
 }
 
-.prev {
-  background: var(--yellow);
-  color: var(--text-dark);
-}
+.button img {
+  width: 98px;
+  height: auto;
+  display: block;
 
-.next {
-  background: var(--pink);
-  color: var(--text-dark);
+  image-rendering: pixelated;
 }
 
 .button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  filter: brightness(0.97);
+  filter: brightness(1.03);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+  filter: brightness(0.92);
 }
 
 .button:disabled {
