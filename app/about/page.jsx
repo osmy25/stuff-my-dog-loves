@@ -17,6 +17,12 @@ export default function AboutPage() {
         His name is Viggo.
       </p>
 
+      <p className={styles.text}>
+        It started as a few tiny animations in celebration 
+        <br />
+        of his 6th birthday.
+      </p>
+
     </div>
   );
 }
