@@ -38,6 +38,10 @@ const notes = [
     date: "may 20th, 2026",
     text: "chewed a stick down to atoms,\nthen was surprised it was gone\n\nwe still went to look for it",
   },
+  {
+    date: "may 28th, 2026",
+    text: "first lake swim this year\n green ball successfully rescued",
+  },
 ];
 
 export default function NotesPage() {
