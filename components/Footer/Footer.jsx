@@ -4,7 +4,6 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div>
-        <a href="/about">about</a> ·{" "}
         <a
           href="https://www.instagram.com/stuffmydogloves.ig"
           target="_blank"
