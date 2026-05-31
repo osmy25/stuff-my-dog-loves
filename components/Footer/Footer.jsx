@@ -3,8 +3,27 @@ import styles from "./Footer.module.css"
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div>more moments → @stuffmydogloves</div>
-      <div>say hi → hello@stuffmydogloves.se</div>
+      <div>
+        <a href="/about">about</a> ·{" "}
+        <a
+          href="https://www.instagram.com/stuffmydogloves.ig"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          instagram
+        </a>{" "}
+        ·{" "}
+        <a
+          href="https://bsky.app/profile/stuffmydogloves.bsky.social"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          bluesky
+        </a>
+      </div>
+
+      <div>hello@stuffmydogloves.se</div>
+
       <div>© 2026 Viggo & human</div>
     </footer>
   );
