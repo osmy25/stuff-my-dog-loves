@@ -22,3 +22,10 @@
 .footer a:active {
   color: inherit;
 }
+
+
+@media (max-width: 600px) {
+  .footer {
+    margin-top: 1.5rem;
+  }
+}
