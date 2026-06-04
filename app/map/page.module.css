@@ -32,9 +32,16 @@
   padding: 0;
 }
 
-
+/*
 .hotspot {
   background: rgba(255, 0, 0, 0.2);
+}
+*/
+.thomashouse {
+  left: 10%;
+  top: 35%;
+  width: 5%;
+  height: 5%;  
 }
 
 

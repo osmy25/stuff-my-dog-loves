@@ -33,8 +33,8 @@ export default function MapClient() {
           e.stopPropagation();
           showThought(
             "i live here with my family",
-            "18%",
-            "28%"
+            "26%",
+            "32%"
           );
         }}
       />
@@ -100,6 +100,19 @@ export default function MapClient() {
             "i love her so much",
             "18%",
             "72%"
+          );
+        }}
+      />
+
+      {/* thomas House */}
+      <button
+        className={`${styles.hotspot} ${styles.thomashouse}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          showThought(
+            "thomas lives here",
+            "18%",
+            "32%"
           );
         }}
       />
