@@ -215,9 +215,9 @@ export default function List() {
           </Link>
 
           <h1 className={styles.introTitle}>
-            A collection of tiny moments
+            Tiny moments about
             <br />
-            about everything my dog{" "}
+            stuff my dog{" "}
             <span className={styles.highlight}>loves</span>
           </h1>
           <Link
