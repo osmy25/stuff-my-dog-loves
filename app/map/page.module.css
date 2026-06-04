@@ -1,0 +1,142 @@
+.page {
+  height: calc(100vh - 60px - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  margin-top: -1rem;
+}
+
+.mapContainer {
+  position: relative;
+  width: min(92vw, calc(100dvh - 95px), 1000px);
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.mapContainer img {
+  width: 100%;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.hotspot {
+  position: absolute;
+  background: rgba(255, 0, 0, 0.2); /* remove later */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.home {
+  left: 20%;
+  top: 36%;
+  width: 14%;
+  height: 10%;
+}
+
+.lake {
+  left: 55%;
+  top: 40%;
+  width: 15%;
+  height: 15%;
+}
+
+.rock {
+  left: 54%;
+  top: 11%;
+  width: 12%;
+  height: 10%;
+}
+
+.grandma {
+  left: 10%;
+  top: 75%;
+  width: 14%;
+  height: 12%;
+}
+
+.girlfriend {
+  left: 86%;
+  top: 32%;
+  width: 2%;
+  height: 2%;
+}
+
+.ball {
+  left: 73%;
+  top: 34%;
+  width: 1%;
+  height: 1%;
+}
+
+.woods {
+  left: 15%;
+  top: 10%;
+  width: 24%;
+  height: 16%;
+}
+
+.vet {
+  left: 68%;
+  top: 77%;
+  width: 13%;
+  height: 12%;
+}
+
+.thought {
+  position: absolute;
+  transform: translate(-50%, -100%);
+
+  max-width: 18ch;
+  padding: 0.45rem 0.7rem;
+
+  background: #e8d6b3;
+  color: #5f4a3a;
+
+  border: 2px solid #8f7a55;
+  border-radius: 10px 8px 11px 7px;
+
+  font-size: 0.85rem;
+  line-height: 1.25;
+  text-align: center;
+  font-weight: 500;
+
+  pointer-events: none;
+  animation: appear 0.12s ease-out;
+}
+
+/* remove the tail completely */
+.thought::after {
+  content: none;
+}
+
+.thought::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: -8px;
+
+  width: 12px;
+  height: 12px;
+
+  background: #f2efe8;
+
+  border-right: 2px solid #5f5a52;
+  border-bottom: 2px solid #5f5a52;
+
+  transform: translateX(-50%) rotate(45deg);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -105%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
