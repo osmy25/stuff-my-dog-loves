@@ -22,7 +22,7 @@
 
 .hotspot {
   position: absolute;
-  background: rgba(255, 0, 0, 0.2); /* remove later */
+  background: none; /* add color to see hitbox */
   border: none;
   cursor: pointer;
   padding: 0;

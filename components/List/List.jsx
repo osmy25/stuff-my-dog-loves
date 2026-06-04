@@ -220,6 +220,18 @@ export default function List() {
             about everything my dog{" "}
             <span className={styles.highlight}>loves</span>
           </h1>
+          <Link
+            href="/map"
+            onClick={() => {
+              window.umami?.track("Secret map");
+            }}
+          >
+            <img
+              src="/images/mapicon.png"
+              alt="map"
+              className={`${styles.introIcon} pixelated`}
+            />
+          </Link>
         </div>
       </div>
 
