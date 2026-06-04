@@ -58,9 +58,9 @@ export default function MapClient() {
         onClick={(e) => {
           e.stopPropagation();
           showThought(
-            "i like sitting up here",
+            "best barking spot",
             "56%",
-            "8%"
+            "12%"
           );
         }}
       />
@@ -104,6 +104,32 @@ export default function MapClient() {
         }}
       />
 
+     {/* garbage can */}
+      <button
+        className={`${styles.hotspot} ${styles.garbage}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          showThought(
+            "sometimes we wait for the garbage truck",
+            "35%",
+            "77%"
+          );
+        }}
+      />
+
+   {/* sticks */}
+      <button
+        className={`${styles.hotspot} ${styles.sticks}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          showThought(
+            "these are important sticks",
+            "55%",
+            "57%"
+          );
+        }}
+      />
+
       {/* thomas House */}
       <button
         className={`${styles.hotspot} ${styles.thomashouse}`}
@@ -125,7 +151,7 @@ export default function MapClient() {
           showThought(
             "sometimes we look for blueberries here",
             "22%",
-            "10%"
+            "15%"
           );
         }}
       />
