@@ -110,7 +110,7 @@ export default function MapClient() {
         onClick={(e) => {
           e.stopPropagation();
           showThought(
-            "sometimes we wait for the garbage truck",
+            "the garbage truck comes here",
             "35%",
             "77%"
           );
