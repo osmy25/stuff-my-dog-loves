@@ -10,6 +10,36 @@ export default function MapPage() {
   return (
     <main className={styles.page}>
       <MapClient />
+
+      <p className={styles.note}>
+        wow you found my secret map!
+        <br />
+        these are my best places
+      </p>
+
+      <div className={styles.mobileFooter}>
+        <div>
+          <a
+            href="https://www.instagram.com/stuffmydogloves.ig"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            instagram
+          </a>{" "}
+          ·{" "}
+          <a
+            href="https://bsky.app/profile/stuffmydogloves.bsky.social"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            bluesky
+          </a>
+        </div>
+
+        <div>hello@stuffmydogloves.se</div>
+
+        <div>© 2026 Viggo & human</div>
+      </div>
     </main>
   );
 }
