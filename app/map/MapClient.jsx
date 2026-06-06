@@ -138,7 +138,10 @@ export default function MapClient() {
         <div className={styles.noteOverlay}>
           <div
             className={styles.thought}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+              setThought(null);
+            }}
           >
             {thought}
           </div>
