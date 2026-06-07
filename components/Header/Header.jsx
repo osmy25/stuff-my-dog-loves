@@ -23,13 +23,7 @@ export default function Header() {
 
             <Link href="/about">about</Link>
 
-            <Link
-              href="https://buymeacoffee.com/stuffmydogloves"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              buy viggo a treat
-            </Link>
+            <Link href= "/collectibles">collectibles</Link>
           </nav>
       </div>
     </header>

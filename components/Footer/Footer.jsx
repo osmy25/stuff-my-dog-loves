@@ -27,12 +27,20 @@ export default function Footer() {
           rel="noopener noreferrer"
         >
           bluesky
+        </a>{" "}
+        ·{" "}
+        <a
+          href="https://buymeacoffee.com/stuffmydogloves"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          buy viggo a treat
         </a>
       </div>
 
-      <div>hello@stuffmydogloves.se</div>
-
-      <div>© 2026 Viggo & human</div>
+      <div>
+        hello@stuffmydogloves.se · © 2026 Viggo & human
+      </div>
     </footer>
   );
 }
