@@ -23,10 +23,7 @@ export default function Header() {
 
             <Link href="/about">about</Link>
 
-<<<<<<< HEAD
-=======
             <Link href= "/collectibles">collectibles</Link>
->>>>>>> origin/storefront
           </nav>
       </div>
     </header>
