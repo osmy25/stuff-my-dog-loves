@@ -263,7 +263,7 @@ export default function List() {
           onClick={handleNext}
           disabled={items.length === 0}
           className={styles.button}
-          aria-label="More"
+          aria-label="Next"
         >
           <img src="/images/morebutton.png" alt="" />
         </button>
