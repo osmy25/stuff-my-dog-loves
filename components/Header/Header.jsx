@@ -22,8 +22,6 @@ export default function Header() {
           <nav className={styles.nav}>
 
             <Link href="/about">about</Link>
-
-            <Link href= "/collectibles">collectibles</Link>
           </nav>
       </div>
     </header>

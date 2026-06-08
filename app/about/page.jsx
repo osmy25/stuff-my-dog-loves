@@ -18,11 +18,14 @@ export default function AboutPage() {
       </p>
 
       <p className={styles.text}>
-        It started as a few tiny animations in celebration 
+        It started as a few tiny animations in celebration
         <br />
         of his 6th birthday.
       </p>
 
+      <p className={styles.text}>
+        Over time it became a small collection of moments and memories.
+      </p>
     </div>
   );
 }

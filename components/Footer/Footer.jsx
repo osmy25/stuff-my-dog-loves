@@ -34,7 +34,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          buy viggo a treat
+          send a treat
         </a>
       </div>
 
