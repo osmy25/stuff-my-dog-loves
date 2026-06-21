@@ -50,6 +50,10 @@ const notes = [
     date: "june 8th, 2026",
     text: "after barking at the neighbour's cat;\nwe had sausage",
   },
+  {
+    date: "june 21th, 2026",
+    text: "found a new stick this morning\n stick pile is growing more impressive",
+  },
 ];
 
 export default function NotesPage() {
