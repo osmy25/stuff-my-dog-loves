@@ -42,29 +42,30 @@
 }
 
 .productInfo h1 {
-  margin: 0.25rem 0 1rem;
+  margin: 0.25rem 0 0.75rem;
   font-size: 2rem;
 }
 
 .productInfo p {
-  line-height: 1.6;
+  margin: 0.75rem 0;
+  line-height: 1.5;
 }
 
 .productInfo ul {
-  margin: 1.5rem 0;
+  margin: 0.75rem 0;
   padding-left: 1.2rem;
 }
 
 .productInfo li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .details {
-  margin: 1.75rem 0;
+  margin: 1.25rem 0;
 }
 
 .detailsTitle {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .detailsList {
@@ -72,30 +73,41 @@
   padding-left: 1.2rem;
 }
 
+.buyArea {
+  margin-top: 1.5rem;
+}
+
 .price {
-  margin: 2rem 0 1rem;
-  font-size: 1.25rem;
+  margin: 0;
+  font-size: 2rem;
   font-weight: 700;
 }
 
+.note {
+  margin: 0.25rem 0 0.9rem;
+  color: #8a8378;
+  font-size: 0.9rem;
+}
+
 .buyButton {
-  display: inline-block;
-  padding: 0.85rem 1.5rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 1.5rem;
   background: #d6d0c6;
   color: #2f2a24;
   text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
   border-radius: 999px;
-  transition: transform 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
 }
 
 .buyButton:hover {
+  background: #cdc6bb;
   transform: translateY(-1px);
-}
-
-.note {
-  margin-top: 1rem;
-  color: #8a8378;
-  font-size: 0.9rem;
 }
 
 @media (max-width: 700px) {
