@@ -7,22 +7,23 @@ export const metadata = {
 export default function CollectiblePage() {
   return (
     <main className={styles.page}>
-
       <section className={styles.productCard}>
         <div className={styles.imageBox}>
           <img
             src="/images/series-one-pack.png"
-            alt="Series One card pack"
+            alt="Stuff My Dog Loves Series One card pack"
           />
         </div>
 
         <div className={styles.productInfo}>
           <p className={styles.series}>series one</p>
+
           <h1>Five-card pack</h1>
 
           <p>
-            A small set of printed cards featuring five favorite moments from
-            Viggo&apos;s world.
+            The first physical release from <em>Stuff My Dog Loves</em>.
+            Five collectible cards featuring some of Viggo&apos;s favorite
+            moments.
           </p>
 
           <ul>
@@ -41,17 +42,19 @@ export default function CollectiblePage() {
               <li>Standard trading card size (63 × 88 mm)</li>
               <li>Premium 350 gsm matte cardstock</li>
               <li>Rounded corners</li>
-              <li>Packed by hand in Sweden</li>
+              <li>Printed in Europe</li>
             </ul>
           </div>
 
-          <p className={styles.price}>$9.99 + shipping</p>
+          <p className={styles.price}>149 SEK</p>
 
           <a className={styles.buyButton} href="#">
             buy pack
           </a>
 
-          <p className={styles.note}>Ships worldwide.</p>
+          <p className={styles.note}>
+            Worldwide shipping included.
+          </p>
         </div>
       </section>
     </main>
