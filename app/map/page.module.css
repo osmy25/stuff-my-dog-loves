@@ -42,7 +42,6 @@
 }
 */
 
-
 .mailbox {
   left: 41%;
   top: 39%;
@@ -50,14 +49,12 @@
   height: 5%;
 }
 
-
 .thomashouse {
   left: 6%;
   top: 35%;
   width: 5%;
-  height: 5%;  
+  height: 5%;
 }
-
 
 .home {
   left: 18%;
@@ -73,7 +70,7 @@
   height: 25%;
 }
 
-.sticks{
+.sticks {
   left: 57%;
   top: 61%;
   width: 5%;
@@ -184,10 +181,6 @@
   border-radius: 3px;
 }
 
-.thought::after {
-  content: none;
-}
-
 .mobileFooter {
   display: none;
 }
@@ -195,10 +188,12 @@
 @keyframes appear {
   from {
     opacity: 0;
+    transform: translateY(4px) rotate(-1deg);
   }
 
   to {
     opacity: 1;
+    transform: translateY(0) rotate(-1deg);
   }
 }
 
@@ -255,5 +250,4 @@
   .mobileFooter a:active {
     color: inherit;
   }
-
 }

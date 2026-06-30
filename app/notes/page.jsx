@@ -54,6 +54,17 @@ const notes = [
     date: "june 21th, 2026",
     text: "found a new stick this morning\n stick pile is growing more impressive",
   },
+  {
+  date: "june 28th, 2026",
+  text: "it's so hot\nwe have to go swimming every day\n\nviggo has no complaints",
+  },
+
+  {
+  date: "june 29th, 2026",
+  text: "viggo likes to roll in the sand after swimming\n\nnow i have 1 kg of sand in my bed",
+  },
+
+
 ];
 
 export default function NotesPage() {

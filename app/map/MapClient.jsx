@@ -16,17 +16,13 @@ export default function MapClient() {
   }
 
   return (
-    <div
-      className={styles.mapContainer}
-      onClick={() => setThought(null)}
-    >
+    <div className={styles.mapContainer} onClick={() => setThought(null)}>
       <img
         src="/images/map2.png"
         alt="Map of Viggo's world"
         draggable={false}
       />
 
-      {/* mailbox */}
       <button
         className={`${styles.hotspot} ${styles.mailbox}`}
         onClick={(e) => {
@@ -35,7 +31,6 @@ export default function MapClient() {
         }}
       />
 
-      {/* My Home */}
       <button
         className={`${styles.hotspot} ${styles.home}`}
         onClick={(e) => {
@@ -44,7 +39,6 @@ export default function MapClient() {
         }}
       />
 
-      {/* Swim Lake */}
       <button
         className={`${styles.hotspot} ${styles.lake}`}
         onClick={(e) => {
@@ -53,7 +47,6 @@ export default function MapClient() {
         }}
       />
 
-      {/* Big Rock */}
       <button
         className={`${styles.hotspot} ${styles.rock}`}
         onClick={(e) => {
@@ -62,7 +55,6 @@ export default function MapClient() {
         }}
       />
 
-      {/* green ball */}
       <button
         className={`${styles.hotspot} ${styles.ball}`}
         onClick={(e) => {
@@ -71,7 +63,6 @@ export default function MapClient() {
         }}
       />
 
-      {/* girlfriend */}
       <button
         className={`${styles.hotspot} ${styles.girlfriend}`}
         onClick={(e) => {
@@ -80,7 +71,6 @@ export default function MapClient() {
         }}
       />
 
-      {/* Grandma's House */}
       <button
         className={`${styles.hotspot} ${styles.grandma}`}
         onClick={(e) => {
@@ -89,7 +79,6 @@ export default function MapClient() {
         }}
       />
 
-      {/* garbage can */}
       <button
         className={`${styles.hotspot} ${styles.garbage}`}
         onClick={(e) => {
@@ -98,7 +87,6 @@ export default function MapClient() {
         }}
       />
 
-      {/* sticks */}
       <button
         className={`${styles.hotspot} ${styles.sticks}`}
         onClick={(e) => {
@@ -107,7 +95,6 @@ export default function MapClient() {
         }}
       />
 
-      {/* thomas House */}
       <button
         className={`${styles.hotspot} ${styles.thomashouse}`}
         onClick={(e) => {
@@ -116,16 +103,14 @@ export default function MapClient() {
         }}
       />
 
-      {/* Blueberry Woods */}
       <button
         className={`${styles.hotspot} ${styles.woods}`}
         onClick={(e) => {
           e.stopPropagation();
-          showThought("sometimes we look for blueberries here");
+          showThought("blueberries are yum yum!!");
         }}
       />
 
-      {/* Vet */}
       <button
         className={`${styles.hotspot} ${styles.vet}`}
         onClick={(e) => {

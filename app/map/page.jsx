@@ -14,7 +14,7 @@ export default function MapPage() {
       <p className={styles.note}>
         wow you found my secret map!
         <br />
-        these are my best places
+        tap my favorite places 🐾
       </p>
 
       <div className={styles.mobileFooter}>
