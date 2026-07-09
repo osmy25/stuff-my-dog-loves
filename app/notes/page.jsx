@@ -64,6 +64,11 @@ const notes = [
   text: "viggo likes to roll in the sand after swimming\n\nnow i have 1 kg of sand in my bed",
   },
 
+  {
+    date: "july 9th, 2026",
+    text: "we checked the mailbox together\n\nnothing for viggo today",
+  },
+
 
 ];
 
