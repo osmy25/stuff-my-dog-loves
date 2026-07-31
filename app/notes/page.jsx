@@ -69,6 +69,11 @@ const notes = [
     text: "we checked the mailbox together\n\nnothing for viggo today",
   },
 
+  {
+    date: "july 31st, 2026",
+    text: "blueberry season is here\n\ni helped find them!!",
+  },
+
 
 ];
 
