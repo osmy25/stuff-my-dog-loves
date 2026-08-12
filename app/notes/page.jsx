@@ -71,7 +71,12 @@ const notes = [
 
   {
     date: "july 31st, 2026",
-    text: "blueberry season is here\n\ni helped find them!!",
+    text: "blueberry season is here\n\nviggo helped find them!!",
+  },
+
+  {
+    date: "august 12th, 2026",
+    text: "viggo carried the same stick almost all the way home\n\nalmost",
   },
 
 
