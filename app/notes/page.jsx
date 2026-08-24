@@ -80,7 +80,7 @@ const notes = [
   },
 
   {
-    date: "august 29th, 2026",
+    date: "august 24th, 2026",
     text: "we shared a banana today\n\nviggo got the yummiest parts",
   },
 
