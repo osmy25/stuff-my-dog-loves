@@ -14,27 +14,11 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div>
         <a
-          href="https://www.instagram.com/stuffmydogloves.ig"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          instagram
-        </a>{" "}
-        ·{" "}
-        <a
           href="https://bsky.app/profile/stuffmydogloves.bsky.social"
           target="_blank"
           rel="noopener noreferrer"
         >
           bluesky
-        </a>{" "}
-        ·{" "}
-        <a
-          href="https://buymeacoffee.com/stuffmydogloves"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          send a treat
         </a>
       </div>
 
