@@ -18,7 +18,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          bluesky
+         ~ bluesky ~
         </a>
       </div>
 
