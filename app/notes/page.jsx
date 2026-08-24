@@ -79,6 +79,11 @@ const notes = [
     text: "viggo carried the same stick almost all the way home\n\nalmost",
   },
 
+  {
+    date: "august 29th, 2026",
+    text: "we shared a banana today\n\nviggo got the yummiest parts",
+  },
+
 
 ];
 
