@@ -84,6 +84,11 @@ const notes = [
     text: "we shared a banana today\n\nviggo got the yummiest parts",
   },
 
+  {
+    date: "september 25th, 2026",
+    text: "viggo got a new stuffy today\n\nhis name is Ducky",
+  },
+
 
 ];
 
